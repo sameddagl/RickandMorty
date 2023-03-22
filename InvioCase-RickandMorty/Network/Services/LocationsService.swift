@@ -11,7 +11,7 @@ protocol LocationsServiceProtocol {
     func getLocations(endPoint: LocationsEndPoint, completion: @escaping (Result<Location, NetworkError>) -> Void)
 }
 
-final class LocationsService {
+final class LocationsService: LocationsServiceProtocol {
     private var service: ServiceProtocol
     
     init(service: ServiceProtocol) {
