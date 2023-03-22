@@ -12,6 +12,13 @@
 		2C69D63129CB6EF9003FCED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C69D63029CB6EF9003FCED8 /* Assets.xcassets */; };
 		2C69D63429CB6EF9003FCED8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C69D63229CB6EF9003FCED8 /* LaunchScreen.storyboard */; };
 		2C69D64629CB7028003FCED8 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D64529CB7028003FCED8 /* CharactersListViewController.swift */; };
+		2C69D64A29CB7185003FCED8 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D64929CB7185003FCED8 /* HTTPMethod.swift */; };
+		2C69D64C29CB71AA003FCED8 /* HTTPEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D64B29CB71AA003FCED8 /* HTTPEndPoint.swift */; };
+		2C69D64E29CB71CC003FCED8 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D64D29CB71CC003FCED8 /* Paths.swift */; };
+		2C69D65029CB7200003FCED8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D64F29CB7200003FCED8 /* NetworkError.swift */; };
+		2C69D65229CB7206003FCED8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D65129CB7206003FCED8 /* Service.swift */; };
+		2C69D65529CB7261003FCED8 /* LocationsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D65429CB7261003FCED8 /* LocationsEndPoint.swift */; };
+		2C69D65729CB7297003FCED8 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D65629CB7297003FCED8 /* LocationsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		2C69D63329CB6EF9003FCED8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C69D63529CB6EF9003FCED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C69D64529CB7028003FCED8 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
+		2C69D64929CB7185003FCED8 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		2C69D64B29CB71AA003FCED8 /* HTTPEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEndPoint.swift; sourceTree = "<group>"; };
+		2C69D64D29CB71CC003FCED8 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
+		2C69D64F29CB7200003FCED8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		2C69D65129CB7206003FCED8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		2C69D65429CB7261003FCED8 /* LocationsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsEndPoint.swift; sourceTree = "<group>"; };
+		2C69D65629CB7297003FCED8 /* LocationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +103,9 @@
 		2C69D63D29CB6FC9003FCED8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2C69D64729CB716F003FCED8 /* Settings */,
+				2C69D64829CB7174003FCED8 /* Core Service */,
+				2C69D65329CB724C003FCED8 /* Services */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -126,6 +143,34 @@
 			children = (
 			);
 			path = Container;
+			sourceTree = "<group>";
+		};
+		2C69D64729CB716F003FCED8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2C69D64929CB7185003FCED8 /* HTTPMethod.swift */,
+				2C69D64B29CB71AA003FCED8 /* HTTPEndPoint.swift */,
+				2C69D64D29CB71CC003FCED8 /* Paths.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2C69D64829CB7174003FCED8 /* Core Service */ = {
+			isa = PBXGroup;
+			children = (
+				2C69D64F29CB7200003FCED8 /* NetworkError.swift */,
+				2C69D65129CB7206003FCED8 /* Service.swift */,
+			);
+			path = "Core Service";
+			sourceTree = "<group>";
+		};
+		2C69D65329CB724C003FCED8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2C69D65429CB7261003FCED8 /* LocationsEndPoint.swift */,
+				2C69D65629CB7297003FCED8 /* LocationsService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,8 +243,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C69D65729CB7297003FCED8 /* LocationsService.swift in Sources */,
+				2C69D64E29CB71CC003FCED8 /* Paths.swift in Sources */,
+				2C69D65229CB7206003FCED8 /* Service.swift in Sources */,
+				2C69D65029CB7200003FCED8 /* NetworkError.swift in Sources */,
+				2C69D64A29CB7185003FCED8 /* HTTPMethod.swift in Sources */,
 				2C69D62829CB6EF6003FCED8 /* AppDelegate.swift in Sources */,
 				2C69D62A29CB6EF6003FCED8 /* SceneDelegate.swift in Sources */,
+				2C69D64C29CB71AA003FCED8 /* HTTPEndPoint.swift in Sources */,
+				2C69D65529CB7261003FCED8 /* LocationsEndPoint.swift in Sources */,
 				2C69D64629CB7028003FCED8 /* CharactersListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
