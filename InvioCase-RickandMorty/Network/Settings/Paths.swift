@@ -8,5 +8,5 @@
 import Foundation
 
 enum Paths {
-    static let locations = "/api/location/"
+    static let locations = "/api/location"
 }

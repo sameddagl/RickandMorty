@@ -19,6 +19,8 @@
 		2C69D65229CB7206003FCED8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D65129CB7206003FCED8 /* Service.swift */; };
 		2C69D65529CB7261003FCED8 /* LocationsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D65429CB7261003FCED8 /* LocationsEndPoint.swift */; };
 		2C69D65729CB7297003FCED8 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D65629CB7297003FCED8 /* LocationsService.swift */; };
+		2C69D65929CB88C4003FCED8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D65829CB88C4003FCED8 /* Location.swift */; };
+		2C69D65B29CB89E1003FCED8 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D65A29CB89E1003FCED8 /* AppContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		2C69D65129CB7206003FCED8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		2C69D65429CB7261003FCED8 /* LocationsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsEndPoint.swift; sourceTree = "<group>"; };
 		2C69D65629CB7297003FCED8 /* LocationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsService.swift; sourceTree = "<group>"; };
+		2C69D65829CB88C4003FCED8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		2C69D65A29CB89E1003FCED8 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 		2C69D63F29CB6FD3003FCED8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2C69D65829CB88C4003FCED8 /* Location.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 		2C69D64229CB6FE0003FCED8 /* Container */ = {
 			isa = PBXGroup;
 			children = (
+				2C69D65A29CB89E1003FCED8 /* AppContainer.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -244,9 +250,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C69D65729CB7297003FCED8 /* LocationsService.swift in Sources */,
+				2C69D65929CB88C4003FCED8 /* Location.swift in Sources */,
 				2C69D64E29CB71CC003FCED8 /* Paths.swift in Sources */,
 				2C69D65229CB7206003FCED8 /* Service.swift in Sources */,
 				2C69D65029CB7200003FCED8 /* NetworkError.swift in Sources */,
+				2C69D65B29CB89E1003FCED8 /* AppContainer.swift in Sources */,
 				2C69D64A29CB7185003FCED8 /* HTTPMethod.swift in Sources */,
 				2C69D62829CB6EF6003FCED8 /* AppDelegate.swift in Sources */,
 				2C69D62A29CB6EF6003FCED8 /* SceneDelegate.swift in Sources */,
