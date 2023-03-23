@@ -10,7 +10,8 @@ import UIKit
 final class CharacterListViewController: UIViewController {
     var viewModel: CharacterListViewModelProtocol!
     
-    private var locations = [CharacterListPresentation]()
+    private var locations = [LocationPresentation]()
+    private var characters = [CharacterPresentation]()
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
@@ -25,11 +26,12 @@ extension CharacterListViewController: CharacterListViewDelegate {
             print("start loading")
         case .endLoading:
             print("end loading")
-        case .updateLocations(let characterListPresentation):
-            locations = characterListPresentation
+        case .updateLocations(let locationPresentation):
+            locations = locationPresentation
             print(locations.count)
-        case .updateCharacters(let characterIDs):
-            print(characterIDs)
+        case .updateCharacters(let charactersPresentation):
+            characters = charactersPresentation
+            print(characters.count)
         }
     }
     

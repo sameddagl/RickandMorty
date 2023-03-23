@@ -17,8 +17,8 @@ protocol CharacterListViewModelProtocol {
 enum CharacterListOutput {
     case startLoading
     case endLoading
-    case updateLocations([CharacterListPresentation])
-    case updateCharacters([Int])
+    case updateLocations([LocationPresentation])
+    case updateCharacters([CharacterPresentation])
 }
 
 enum CharacterListRoute {

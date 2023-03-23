@@ -11,34 +11,45 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     weak var delegate: CharacterListViewDelegate?
     
     private let locationsService: LocationsServiceProtocol
+    private let charactersService: CharactersServiceProtocol
     
-    init(locationsService: LocationsServiceProtocol) {
+    init(locationsService: LocationsServiceProtocol, charactersService: CharactersServiceProtocol) {
         self.locationsService = locationsService
+        self.charactersService = charactersService
     }
     
     private var locations = [LocationResult]()
+    private var characters = [Character]()
     private var currentPage = 1
     
     func load() {
         notify(.startLoading)
+        
         locationsService.getLocations(endPoint: .getLocations(page: currentPage)) { [weak self] result in
             guard let self = self else { return }
-            
-            self.notify(.endLoading)
-            
+                        
             switch result {
             case .success(let location):
                 let locationResults = location.results
                 self.locations = locationResults
+                self.notify(.updateLocations(self.locations.map{ LocationPresentation(locationResult: $0) }))
                 
-                self.notify(.updateLocations(self.locations.map{ CharacterListPresentation(locationResult: $0) }))
-                
-                let residentsID = self.parseIDs(from: locationResults[0])
-
                 //Network call to get characters
-                self.notify(.updateCharacters(residentsID))
+                let residentsID = self.parseIDs(from: self.locations[0])
+                self.charactersService.getCharacters(endPoint: CharactersEndPoint.getCharacters(ids: residentsID)) {result in
+                    self.notify(.endLoading)
+                    switch result {
+                    case .success(let characters):
+                        self.characters = characters
+                        self.notify(.updateCharacters(self.characters.map{ CharacterPresentation(character: $0) }))
+                    case .failure(let error):
+                        print(error)
+                        #warning("Error handling")
+                    }
+                }
             case .failure(let error):
                 print(error)
+                #warning("Error handling")
             }
         }
     }
@@ -59,7 +70,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     
     private func parseIDs(from location: LocationResult) -> [Int] {
         var residentsID = [Int]()
-
+        
         location.residents.forEach { residentURL in
             residentsID.append(Int.parse(from: residentURL))
         }

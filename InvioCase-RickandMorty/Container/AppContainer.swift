@@ -13,4 +13,5 @@ enum AppContainer {
 
 enum ServiceContainer {
     static let locationsService = LocationsService(service: AppContainer.service)
+    static let charactersService = CharactersService(service: AppContainer.service)
 }

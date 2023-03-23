@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterListPresentation {
+struct LocationPresentation {
     let name: String
     
     init(locationResult: LocationResult) {
