@@ -10,6 +10,7 @@ import Foundation
 protocol CharacterListViewModelProtocol {
     var delegate: CharacterListViewDelegate? { get set }
     func load()
+    func selectLocation(location: String)
     func select(at index: Int)
 }
 
@@ -17,6 +18,7 @@ enum CharacterListOutput {
     case startLoading
     case endLoading
     case updateLocations([CharacterListPresentation])
+    case updateCharacters([Int])
 }
 
 enum CharacterListRoute {

@@ -28,6 +28,8 @@ extension CharacterListViewController: CharacterListViewDelegate {
         case .updateLocations(let characterListPresentation):
             locations = characterListPresentation
             print(locations.count)
+        case .updateCharacters(let characterIDs):
+            print(characterIDs)
         }
     }
     
