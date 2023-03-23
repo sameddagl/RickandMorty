@@ -55,7 +55,8 @@ extension CharacterListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCell.reuseID, for: indexPath) as! CharacterCell
+        cell.set(character: characters[indexPath.item])
         return cell
     }
 }
@@ -69,12 +70,13 @@ extension CharacterListViewController {
     
     private func configureView() {
         view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
         title = "Rick and Morty"
     }
     
     private func createCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCollectionViewLayout())
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.reuseID)
         collectionView.dataSource = self
         view.addSubview(collectionView)
     }
@@ -83,7 +85,7 @@ extension CharacterListViewController {
         let layout = UICollectionViewCompositionalLayout{ sectionNum, env in
             let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1)))
             item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10)
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [item])
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(210)), subitems: [item])
             group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 10)
             let section = NSCollectionLayoutSection(group: group)
             return section
