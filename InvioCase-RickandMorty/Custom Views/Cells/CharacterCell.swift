@@ -39,7 +39,7 @@ final class CharacterCell: UICollectionViewCell {
         articleImageView.snp.makeConstraints { make in
             make.centerX.equalTo(self)
             make.top.leading.trailing.equalTo(self)
-            make.height.equalTo(articleImageView.snp.width)
+            make.height.equalTo(self.snp.height).multipliedBy(0.8)
         }
         
         addSubview(titleLabel)

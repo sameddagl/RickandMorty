@@ -52,6 +52,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     
     func selectLocation(at index: Int) {
         characters.removeAll()
+        notify(.startLoading)
         
         selectLocationCell(at: index)
                 

@@ -20,6 +20,7 @@ final class CharacterListViewController: UIViewController {
     
     //MARK: - Life cycle
     override func viewDidLoad() {
+        print(#function)
         super.viewDidLoad()
         layout()
         viewModel.load()
@@ -36,11 +37,9 @@ extension CharacterListViewController: CharacterListViewDelegate {
             print("end loading")
         case .updateLocations(let locationPresentation):
             locations = locationPresentation
-            print(locations.count)
         case .updateCharacters(let charactersPresentation):
             characters = charactersPresentation
             collectionView.reloadOnMainThread()
-            print(characters.count)
         }
     }
     
@@ -84,7 +83,7 @@ extension CharacterListViewController: UICollectionViewDelegate {
             viewModel.selectLocation(at: indexPath.item)
         }
         else {
-            
+            //Go to detail
         }
     }
 }
@@ -103,7 +102,8 @@ extension CharacterListViewController {
     }
     
     private func createCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCollectionViewLayout())
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: createCollectionViewLayout())
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.reuseID)
         collectionView.register(LocationCell.self, forCellWithReuseIdentifier: LocationCell.reuseID)
         collectionView.dataSource = self
@@ -114,10 +114,14 @@ extension CharacterListViewController {
     private func createCollectionViewLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout{ sectionNum, env in
             if sectionNum == 0 {
+                let fractionWidth = NSCollectionLayoutDimension.fractionalWidth(forTargetSize: 150, inEnvironment: env)
+
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.4), heightDimension: .absolute(50)), subitems: [item])
+                
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: fractionWidth, heightDimension: .absolute(50)), subitems: [item])
                 group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 5)
+                
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
                 
@@ -126,15 +130,18 @@ extension CharacterListViewController {
                 return section
             }
             else {
-                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1)))
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)
+                let fractionWidth = NSCollectionLayoutDimension.fractionalWidth(forTargetSize: 200, inEnvironment: env)
+                
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: fractionWidth, heightDimension: .fractionalHeight(1)))
+                item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+                
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(245)), subitems: [item])
-                group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 5)
+                group.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+                
                 let section = NSCollectionLayoutSection(group: group)
                 return section
             }
         }
-        
         return layout
     }
 }
