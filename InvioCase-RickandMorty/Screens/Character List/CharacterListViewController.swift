@@ -49,6 +49,7 @@ extension CharacterListViewController: CharacterListViewDelegate {
     }
 }
 
+//MARK: - Collection View Delegate & Data Source
 extension CharacterListViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -65,14 +66,25 @@ extension CharacterListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-            cell.backgroundColor = .red
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LocationCell.reuseID, for: indexPath) as! LocationCell
+            cell.set(location: locations[indexPath.item])
             return cell
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCell.reuseID, for: indexPath) as! CharacterCell
             cell.set(character: characters[indexPath.item])
             return cell
+        }
+    }
+}
+
+extension CharacterListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            viewModel.selectLocation(at: indexPath.item)
+        }
+        else {
+            
         }
     }
 }
@@ -93,8 +105,9 @@ extension CharacterListViewController {
     private func createCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCollectionViewLayout())
         collectionView.register(CharacterCell.self, forCellWithReuseIdentifier: CharacterCell.reuseID)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(LocationCell.self, forCellWithReuseIdentifier: LocationCell.reuseID)
         collectionView.dataSource = self
+        collectionView.delegate = self
         view.addSubview(collectionView)
     }
     
@@ -115,7 +128,7 @@ extension CharacterListViewController {
             else {
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1)))
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(230)), subitems: [item])
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(245)), subitems: [item])
                 group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 5)
                 let section = NSCollectionLayoutSection(group: group)
                 return section

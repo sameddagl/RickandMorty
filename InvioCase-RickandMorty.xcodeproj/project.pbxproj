@@ -26,6 +26,7 @@
 		2C69D66029CB8B4A003FCED8 /* CharacterListContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D65F29CB8B4A003FCED8 /* CharacterListContracts.swift */; };
 		2C69D66229CB8B54003FCED8 /* CharacterListViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D66129CB8B54003FCED8 /* CharacterListViewBuilder.swift */; };
 		2C69D66429CB8B5D003FCED8 /* LocationPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D66329CB8B5D003FCED8 /* LocationPresentation.swift */; };
+		2C6F976E29CDA2A300DDDEF9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F976D29CDA2A300DDDEF9 /* LocationCell.swift */; };
 		2CD22D6329CCA84D00025FE1 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6229CCA84D00025FE1 /* Int+Extension.swift */; };
 		2CD22D6729CCC4EC00025FE1 /* CharactersEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6629CCC4EC00025FE1 /* CharactersEndPoint.swift */; };
 		2CD22D6929CCC61F00025FE1 /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6829CCC61F00025FE1 /* CharactersService.swift */; };
@@ -62,6 +63,7 @@
 		2C69D65F29CB8B4A003FCED8 /* CharacterListContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListContracts.swift; sourceTree = "<group>"; };
 		2C69D66129CB8B54003FCED8 /* CharacterListViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewBuilder.swift; sourceTree = "<group>"; };
 		2C69D66329CB8B5D003FCED8 /* LocationPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPresentation.swift; sourceTree = "<group>"; };
+		2C6F976D29CDA2A300DDDEF9 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		2CD22D6229CCA84D00025FE1 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		2CD22D6629CCC4EC00025FE1 /* CharactersEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersEndPoint.swift; sourceTree = "<group>"; };
 		2CD22D6829CCC61F00025FE1 /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				2CD22D7A29CCD77800025FE1 /* CharacterCell.swift */,
+				2C6F976D29CDA2A300DDDEF9 /* LocationCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				2CD22D7229CCD00A00025FE1 /* UICollectionView+Extension.swift in Sources */,
 				2C69D62A29CB6EF6003FCED8 /* SceneDelegate.swift in Sources */,
 				2C69D66229CB8B54003FCED8 /* CharacterListViewBuilder.swift in Sources */,
+				2C6F976E29CDA2A300DDDEF9 /* LocationCell.swift in Sources */,
 				2C69D64C29CB71AA003FCED8 /* HTTPEndPoint.swift in Sources */,
 				2C69D65529CB7261003FCED8 /* LocationsEndPoint.swift in Sources */,
 				2C69D64629CB7028003FCED8 /* CharacterListViewController.swift in Sources */,

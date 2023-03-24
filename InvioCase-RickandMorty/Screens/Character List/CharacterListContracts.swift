@@ -10,8 +10,8 @@ import Foundation
 protocol CharacterListViewModelProtocol {
     var delegate: CharacterListViewDelegate? { get set }
     func load()
-    func selectLocation(location: String)
-    func select(at index: Int)
+    func selectLocation(at index: Int)
+    func selectCharacter(at index: Int)
 }
 
 enum CharacterListOutput {

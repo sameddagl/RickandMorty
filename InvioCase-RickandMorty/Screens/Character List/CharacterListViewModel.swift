@@ -33,10 +33,16 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
             case .success(let location):
                 let locationResults = location.results
                 self.locations = locationResults
-                self.notify(.updateLocations(self.locations.map{ LocationPresentation(locationResult: $0) }))
+                
+                var locationsPresentation = self.locations.map{ LocationPresentation(locationResult: $0) }
+                locationsPresentation[0].isSelected = true
+                self.notify(.updateLocations(locationsPresentation))
                 
                 //Network call to get characters
                 let residentsIDs = self.parseIDs(from: self.locations[0])
+                
+                guard residentsIDs.count > 0 else { print("No charachter found on \(self.locations[0])"); return}
+                
                 self.requestCharacters(residentsIDs: residentsIDs)
             case .failure(let error):
                 print(error)
@@ -44,19 +50,23 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         }
     }
     
-    func selectLocation(location: String) {
+    func selectLocation(at index: Int) {
         characters.removeAll()
         
-        let selectedLocation = locations.first{ $0.name == location }
+        selectLocationCell(at: index)
+                
+        let selectedLocation = locations.first{ $0.name == locations[index].name }
         
         guard let selectedLocation else { return } //Error handling
         
         let residentsIDs = parseIDs(from: selectedLocation)
         
+        guard residentsIDs.count > 0 else { print("No charachter found on \(selectedLocation)"); return}
+        
         requestCharacters(residentsIDs: residentsIDs)
     }
-    
-    func select(at index: Int) {
+
+    func selectCharacter(at index: Int) {
         
     }
     
@@ -108,6 +118,16 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         }
         
         return residentsID
+    }
+    
+    private func selectLocationCell(at index: Int) {
+        var locationsPresentation = self.locations.map{ LocationPresentation(locationResult: $0) }
+        for (index, _) in locationsPresentation.enumerated() {
+            locationsPresentation[index].isSelected = false
+        }
+        locationsPresentation[index].isSelected = true
+        
+        notify(.updateLocations(locationsPresentation))
     }
     
     private func notify(_ output: CharacterListOutput) {
