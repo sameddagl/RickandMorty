@@ -1,13 +1,13 @@
 //
-//  RMCellLabel.swift
+//  RMCellDetailLabel.swift
 //  InvioCase-RickandMorty
 //
-//  Created by Samed Dağlı on 23.03.2023.
+//  Created by Samed Dağlı on 24.03.2023.
 //
 
 import UIKit
 
-final class RMCellLabel: UILabel {
+final class RMCellDetailLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -15,13 +15,13 @@ final class RMCellLabel: UILabel {
     }
     
     private func configure() {
-        lineBreakMode = .byTruncatingTail
         numberOfLines = 1
         
-        font = .systemFont(ofSize: 16, weight: .semibold)
+        font = .systemFont(ofSize: 14)
+        textColor = .secondaryLabel
         
         self.adjustsFontSizeToFitWidth = true
-        self.minimumScaleFactor = 0.90
+        self.minimumScaleFactor = 0.95
     }
     
     required init?(coder: NSCoder) {

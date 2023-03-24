@@ -29,6 +29,7 @@
 		2C6F976E29CDA2A300DDDEF9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F976D29CDA2A300DDDEF9 /* LocationCell.swift */; };
 		2C6F977029CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F976F29CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift */; };
 		2C6F977229CDC46400DDDEF9 /* RMDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F977129CDC46400DDDEF9 /* RMDataLoadingVC.swift */; };
+		2C8FA78B29CDD16900FE3D22 /* RMCellDetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8FA78A29CDD16900FE3D22 /* RMCellDetailLabel.swift */; };
 		2CD22D6329CCA84D00025FE1 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6229CCA84D00025FE1 /* Int+Extension.swift */; };
 		2CD22D6729CCC4EC00025FE1 /* CharactersEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6629CCC4EC00025FE1 /* CharactersEndPoint.swift */; };
 		2CD22D6929CCC61F00025FE1 /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6829CCC61F00025FE1 /* CharactersService.swift */; };
@@ -68,6 +69,7 @@
 		2C6F976D29CDA2A300DDDEF9 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		2C6F976F29CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutDimension+Extension.swift"; sourceTree = "<group>"; };
 		2C6F977129CDC46400DDDEF9 /* RMDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMDataLoadingVC.swift; sourceTree = "<group>"; };
+		2C8FA78A29CDD16900FE3D22 /* RMCellDetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCellDetailLabel.swift; sourceTree = "<group>"; };
 		2CD22D6229CCA84D00025FE1 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		2CD22D6629CCC4EC00025FE1 /* CharactersEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersEndPoint.swift; sourceTree = "<group>"; };
 		2CD22D6829CCC61F00025FE1 /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				2CD22D7429CCD60700025FE1 /* RMTitleLabel.swift */,
 				2CD22D7729CCD65200025FE1 /* RMBodyLabel.swift */,
 				2CD22D8129CCDAAF00025FE1 /* RMCellLabel.swift */,
+				2C8FA78A29CDD16900FE3D22 /* RMCellDetailLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				2CD22D8029CCD89D00025FE1 /* RMCellImageView.swift in Sources */,
 				2C69D65E29CB8B2D003FCED8 /* CharacterListViewModel.swift in Sources */,
 				2CD22D7829CCD65200025FE1 /* RMBodyLabel.swift in Sources */,
+				2C8FA78B29CDD16900FE3D22 /* RMCellDetailLabel.swift in Sources */,
 				2C69D65729CB7297003FCED8 /* LocationsService.swift in Sources */,
 				2CD22D8229CCDAAF00025FE1 /* RMCellLabel.swift in Sources */,
 				2C69D65929CB88C4003FCED8 /* Location.swift in Sources */,
