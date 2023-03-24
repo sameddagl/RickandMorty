@@ -107,22 +107,20 @@ extension CharacterListViewController {
         collectionView.register(LocationCell.self, forCellWithReuseIdentifier: LocationCell.reuseID)
         collectionView.dataSource = self
         collectionView.delegate = self
-        view.addSubview(collectionView)
+        view.addSubview(collectionView)        
     }
     
     private func createCollectionViewLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout{ sectionNum, env in
             if sectionNum == 0 {
-                let fractionWidth = NSCollectionLayoutDimension.fractionalWidth(forTargetSize: 150, inEnvironment: env)
-
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)
                 
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: fractionWidth, heightDimension: .absolute(50)), subitems: [item])
-                group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 5)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.45), heightDimension: .absolute(50)), subitems: [item])
+                group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
                 
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 10, trailing: 5)
                 
                 section.orthogonalScrollingBehavior = .continuous
                 

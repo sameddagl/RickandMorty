@@ -6,13 +6,7 @@
 //
 
 import UIKit
-
-enum Gender: String {
-    case male = "Male"
-    case female = "Female"
-    case genderless = "Genderless"
-    case unknown = "Unknown"
-}
+import SDWebImage
 
 final class CharacterCell: UICollectionViewCell {
     static let reuseID = "CharacterCell"
@@ -37,6 +31,9 @@ final class CharacterCell: UICollectionViewCell {
         titleLabel.text = character.name
         genderLabel.text = character.gender.capitalized
         genderIndicator.tintColor = setGenderIndicatorColor(gender: character.gender.capitalized)
+        
+        articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.medium
+        articleImageView.sd_imageTransition = .fade
         articleImageView.sd_setImage(with: URL(string: character.image), placeholderImage: Images.placeholder)
     }
     

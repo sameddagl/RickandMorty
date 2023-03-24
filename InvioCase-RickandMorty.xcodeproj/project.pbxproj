@@ -43,6 +43,7 @@
 		2CD22D8029CCD89D00025FE1 /* RMCellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D7F29CCD89D00025FE1 /* RMCellImageView.swift */; };
 		2CD22D8229CCDAAF00025FE1 /* RMCellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D8129CCDAAF00025FE1 /* RMCellLabel.swift */; };
 		2CD22D8429CCDCA900025FE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D8329CCDCA900025FE1 /* Constants.swift */; };
+		2CF0F0C629CE204F00FA71BF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0F0C529CE204F00FA71BF /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		2CD22D7F29CCD89D00025FE1 /* RMCellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCellImageView.swift; sourceTree = "<group>"; };
 		2CD22D8129CCDAAF00025FE1 /* RMCellLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCellLabel.swift; sourceTree = "<group>"; };
 		2CD22D8329CCDCA900025FE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2CF0F0C529CE204F00FA71BF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				2C69D65C29CB8AFF003FCED8 /* Character List */,
+				2C8FA78C29CDDA4900FE3D22 /* Detail */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -243,6 +246,14 @@
 				2CD22D6C29CCCB2300025FE1 /* CharacterPresentation.swift */,
 			);
 			path = "Character List";
+			sourceTree = "<group>";
+		};
+		2C8FA78C29CDDA4900FE3D22 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2CF0F0C529CE204F00FA71BF /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		2CD22D6429CCC4CD00025FE1 /* Locations Service */ = {
@@ -369,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CF0F0C629CE204F00FA71BF /* DetailViewController.swift in Sources */,
 				2CD22D7B29CCD77800025FE1 /* CharacterCell.swift in Sources */,
 				2CD22D8029CCD89D00025FE1 /* RMCellImageView.swift in Sources */,
 				2C69D65E29CB8B2D003FCED8 /* CharacterListViewModel.swift in Sources */,

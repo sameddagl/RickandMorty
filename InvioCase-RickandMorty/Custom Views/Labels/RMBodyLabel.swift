@@ -15,8 +15,8 @@ final class RMBodyLabel: UILabel {
     }
     
     private func configure() {
-        lineBreakMode = .byWordWrapping
-        numberOfLines = 2
+        lineBreakMode = .byTruncatingTail
+        numberOfLines = 1
         
         font = UIFont(name: "AvenirNext-Regular", size: 22)
         
