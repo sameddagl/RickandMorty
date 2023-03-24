@@ -27,13 +27,14 @@ final class DetailViewController: RMDataLoadingVC {
     }
     
     private func setInfos() {
+        title = character.name
         characterImageView.sd_setImage(with: URL(string: character.image), placeholderImage: Images.placeholder)
-        statusLabel.text = character.name
+        statusLabel.text = character.status
         specyLabel.text = character.species
         genderLabel.text = character.gender
         originLabel.text = character.origin.name
         locationLabel.text = character.location.name
-        createdAtLabel.text = character.created
+        createdAtLabel.text = character.created.formatDate
     }
 }
 
@@ -46,6 +47,7 @@ extension DetailViewController {
     }
     
     private func configureView() {
+        navigationController?.navigationBar.prefersLargeTitles = false
         view.backgroundColor = .systemBackground
     }
     
@@ -53,10 +55,11 @@ extension DetailViewController {
         view.addSubview(characterImageView)
                 
         characterImageView.snp.makeConstraints { make in
-            make.height.equalTo(275)
+            make.centerX.equalTo(view)
+            make.width.height.equalTo(275)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(50)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-50)
+//            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(50)
+//            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-50)
         }
     }
     
@@ -83,9 +86,7 @@ extension DetailViewController {
         titleLabelsStack.axis = .vertical
         titleLabelsStack.spacing = 5
         titleLabelsStack.distribution = .fillEqually
-        
-        titleLabelsStack.backgroundColor = .blue
-        
+                
         let labelsStack = UIStackView(arrangedSubviews: [statusLabel, specyLabel, genderLabel, originLabel, locationLabel, createdAtLabel])
         labelsStack.axis = .vertical
         labelsStack.spacing = 5

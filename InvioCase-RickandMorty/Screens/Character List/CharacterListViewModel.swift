@@ -68,7 +68,8 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     }
 
     func selectCharacter(at index: Int) {
-        
+        let selectedCharacter = characters[index]
+        delegate?.navigate(to: .detail(selectedCharacter))
     }
     
     //MARK: - Helper Methods

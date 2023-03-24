@@ -43,7 +43,12 @@ extension CharacterListViewController: CharacterListViewDelegate {
     }
     
     func navigate(to route: CharacterListRoute) {
-        
+        switch route {
+        case .detail(let character):
+            let vc = DetailViewController()
+            vc.character = character
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -82,7 +87,7 @@ extension CharacterListViewController: UICollectionViewDelegate {
             viewModel.selectLocation(at: indexPath.item)
         }
         else {
-            //Go to detail
+            viewModel.selectCharacter(at: indexPath.item)
         }
     }
 }

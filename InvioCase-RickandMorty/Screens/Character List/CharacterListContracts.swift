@@ -22,7 +22,7 @@ enum CharacterListOutput {
 }
 
 enum CharacterListRoute {
-    case detail
+    case detail(Character)
 }
 
 protocol CharacterListViewDelegate: AnyObject {
