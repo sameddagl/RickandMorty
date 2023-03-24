@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CharacterListViewController: UIViewController {
+final class CharacterListViewController: RMDataLoadingVC {
     //MARK: - UI Elements
     private var collectionView: UICollectionView!
     
@@ -20,7 +20,6 @@ final class CharacterListViewController: UIViewController {
     
     //MARK: - Life cycle
     override func viewDidLoad() {
-        print(#function)
         super.viewDidLoad()
         layout()
         viewModel.load()
@@ -32,9 +31,9 @@ extension CharacterListViewController: CharacterListViewDelegate {
     func handleOutput(_ output: CharacterListOutput) {
         switch output {
         case .startLoading:
-            print("start loading")
+            showLoadingScreen()
         case .endLoading:
-            print("end loading")
+            removeLoadingScreen()
         case .updateLocations(let locationPresentation):
             locations = locationPresentation
         case .updateCharacters(let charactersPresentation):
