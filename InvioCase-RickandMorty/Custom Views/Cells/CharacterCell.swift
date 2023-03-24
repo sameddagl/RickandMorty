@@ -20,22 +20,26 @@ final class CharacterCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         titleLabel.text = ""
+        articleImageView.image = nil
     }
     
     func set(character: CharacterPresentation) {
         titleLabel.text = character.name
+        articleImageView.sd_setImage(with: URL(string: character.image), placeholderImage: Images.placeholder)
     }
     
     private func configure() {
+        backgroundColor = .secondarySystemBackground
+        layer.cornerRadius = 10
+        
         addSubview(articleImageView)
-        articleImageView.image = Images.placeholder
+        articleImageView.layer.cornerRadius = 5
+        articleImageView.layer.masksToBounds = true
 
         articleImageView.snp.makeConstraints { make in
             make.centerX.equalTo(self)
-            make.top.equalTo(self).offset(10)
-            make.leading.equalTo(self).offset(10)
-            make.trailing.equalTo(self).offset(-10)
-            make.height.equalTo(articleImageView.snp.width).multipliedBy(0.8)
+            make.top.leading.trailing.equalTo(self)
+            make.height.equalTo(articleImageView.snp.width)
         }
         
         addSubview(titleLabel)
@@ -43,9 +47,10 @@ final class CharacterCell: UICollectionViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalTo(articleImageView)
-            make.top.equalTo(articleImageView.snp.bottom).offset(10)
+            make.top.equalTo(articleImageView.snp.bottom).offset(5)
             make.leading.equalTo(self).offset(10)
             make.trailing.equalTo(self).offset(-10)
+            make.bottom.equalTo(self).offset(-5)
         }
     }
     

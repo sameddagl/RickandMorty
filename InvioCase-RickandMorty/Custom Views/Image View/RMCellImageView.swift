@@ -15,9 +15,6 @@ final class RMCellImageView: UIImageView {
     }
     
     private func configure() {
-        clipsToBounds = true
-        layer.cornerRadius = 20
-        
         backgroundColor = .systemBackground
         tintColor = .secondarySystemFill
         

@@ -22,6 +22,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     private var characters = [Character]()
     private var currentPage = 1
     
+    //MARK: - Main Methods
     func load() {
         notify(.startLoading)
         
@@ -35,37 +36,68 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
                 self.notify(.updateLocations(self.locations.map{ LocationPresentation(locationResult: $0) }))
                 
                 //Network call to get characters
-                let residentsID = self.parseIDs(from: self.locations[0])
-                self.charactersService.getCharacters(endPoint: CharactersEndPoint.getCharacters(ids: residentsID)) {result in
-                    self.notify(.endLoading)
-                    switch result {
-                    case .success(let characters):
-                        self.characters = characters
-                        self.notify(.updateCharacters(self.characters.map{ CharacterPresentation(character: $0) }))
-                    case .failure(let error):
-                        print(error)
-                        #warning("Error handling")
-                    }
-                }
+                let residentsIDs = self.parseIDs(from: self.locations[0])
+                self.requestCharacters(residentsIDs: residentsIDs)
             case .failure(let error):
                 print(error)
-                #warning("Error handling")
             }
         }
     }
     
     func selectLocation(location: String) {
+        characters.removeAll()
+        
         let selectedLocation = locations.first{ $0.name == location }
         
         guard let selectedLocation else { return } //Error handling
         
         let residentsIDs = parseIDs(from: selectedLocation)
         
-        //Network call to get characters
+        requestCharacters(residentsIDs: residentsIDs)
     }
     
     func select(at index: Int) {
         
+    }
+    
+    //MARK: - Helper Methods
+    private func requestCharacters(residentsIDs: [Int]) {
+        if residentsIDs.count <= 1 {
+            getSingleCharacter(residentsIDs: residentsIDs)
+        }
+        else {
+            getMultipleCharacters(residentsIDs: residentsIDs)
+        }
+    }
+    
+    private func getMultipleCharacters(residentsIDs: [Int]) {
+        self.charactersService.getCharacters(endPoint: CharactersEndPoint.getCharacters(ids: residentsIDs)) { [weak self] result in
+            guard let self = self else { return }
+
+            self.notify(.endLoading)
+            switch result {
+            case .success(let characters):
+                self.characters.append(contentsOf: characters)
+                self.notify(.updateCharacters(self.characters.map{ CharacterPresentation(character: $0) }))
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    private func getSingleCharacter(residentsIDs: [Int]) {
+        self.charactersService.getCharacter(endPoint: CharactersEndPoint.getCharacters(ids: residentsIDs)) { [weak self] result in
+            guard let self = self else { return }
+
+            self.notify(.endLoading)
+            switch result {
+            case .success(let character):
+                self.characters.append(character)
+                self.notify(.updateCharacters(self.characters.map{ CharacterPresentation(character: $0) }))
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     private func parseIDs(from location: LocationResult) -> [Int] {
@@ -78,7 +110,6 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         return residentsID
     }
     
-    //MARK: - Helper Methods
     private func notify(_ output: CharacterListOutput) {
         delegate?.handleOutput(output)
     }

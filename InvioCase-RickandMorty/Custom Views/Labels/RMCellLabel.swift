@@ -18,10 +18,10 @@ final class RMCellLabel: UILabel {
         lineBreakMode = .byTruncatingTail
         numberOfLines = 2
         
-        font = .systemFont(ofSize: 18, weight: .semibold)
+        font = .systemFont(ofSize: 16, weight: .semibold)
         
         self.adjustsFontSizeToFitWidth = true
-        self.minimumScaleFactor = 0.80
+        self.minimumScaleFactor = 0.95
     }
     
     required init?(coder: NSCoder) {

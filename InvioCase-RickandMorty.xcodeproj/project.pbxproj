@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C16177A29CCDFA300D76513 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2C16177929CCDFA300D76513 /* SDWebImage */; };
 		2C69D62829CB6EF6003FCED8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D62729CB6EF6003FCED8 /* AppDelegate.swift */; };
 		2C69D62A29CB6EF6003FCED8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D62929CB6EF6003FCED8 /* SceneDelegate.swift */; };
 		2C69D63129CB6EF9003FCED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C69D63029CB6EF9003FCED8 /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C16177A29CCDFA300D76513 /* SDWebImage in Frameworks */,
 				2CD22D7029CCCE3900025FE1 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +297,7 @@
 			name = "InvioCase-RickandMorty";
 			packageProductDependencies = (
 				2CD22D6F29CCCE3900025FE1 /* SnapKit */,
+				2C16177929CCDFA300D76513 /* SDWebImage */,
 			);
 			productName = "InvioCase-RickandMorty";
 			productReference = 2C69D62429CB6EF6003FCED8 /* InvioCase-RickandMorty.app */;
@@ -326,6 +329,7 @@
 			mainGroup = 2C69D61B29CB6EF6003FCED8;
 			packageReferences = (
 				2CD22D6E29CCCE3900025FE1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2C16177829CCDFA300D76513 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 2C69D62529CB6EF6003FCED8 /* Products */;
 			projectDirPath = "";
@@ -602,6 +606,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2C16177829CCDFA300D76513 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		2CD22D6E29CCCE3900025FE1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -613,6 +625,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2C16177929CCDFA300D76513 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C16177829CCDFA300D76513 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		2CD22D6F29CCCE3900025FE1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2CD22D6E29CCCE3900025FE1 /* XCRemoteSwiftPackageReference "SnapKit" */;
