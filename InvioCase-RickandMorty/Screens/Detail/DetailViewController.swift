@@ -20,12 +20,19 @@ final class DetailViewController: RMDataLoadingVC {
     //MARK: - Properties
     var character: Character!
 
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
         setInfos()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    //MARK: - Main Methods
     private func setInfos() {
         title = character.name
         characterImageView.sd_setImage(with: URL(string: character.image), placeholderImage: Images.placeholder)
@@ -47,19 +54,19 @@ extension DetailViewController {
     }
     
     private func configureView() {
-        navigationController?.navigationBar.prefersLargeTitles = false
         view.backgroundColor = .systemBackground
     }
     
     private func configureImageView() {
         view.addSubview(characterImageView)
+        
+        characterImageView.layer.cornerRadius = 10
+        characterImageView.clipsToBounds = true
                 
         characterImageView.snp.makeConstraints { make in
             make.centerX.equalTo(view)
             make.width.height.equalTo(275)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
-//            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(50)
-//            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).offset(-50)
         }
     }
     

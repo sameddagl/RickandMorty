@@ -24,6 +24,12 @@ final class CharacterListViewController: RMDataLoadingVC {
         layout()
         viewModel.load()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode =  .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
 
 //MARK: - View Model Outputs
@@ -101,7 +107,6 @@ extension CharacterListViewController {
     
     private func configureView() {
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
         title = "Rick and Morty"
     }
     

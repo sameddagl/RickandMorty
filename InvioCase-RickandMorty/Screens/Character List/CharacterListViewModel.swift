@@ -24,6 +24,8 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     
     //MARK: - Main Methods
     func load() {
+        UserDefaults.standard.hasOpenedBefore = true
+
         notify(.startLoading)
         
         locationsService.getLocations(endPoint: .getLocations(page: currentPage)) { [weak self] result in

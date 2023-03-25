@@ -9,6 +9,7 @@ import UIKit
 
 enum Images {
     static let placeholder = UIImage(named: "placeholder")
+    static let splashImage = UIImage(named: "splashImage")
 }
 
 enum SFSymbols {
