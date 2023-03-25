@@ -8,10 +8,11 @@
 import Foundation
 
 enum NetworkError: String, Error {
-    case badURL
-    case badResponse
-    case unauthorized
-    case unexpectedStatusCode
-    case badData
-    case decoding
+    case badURL                 = "Unable to complete your request. Please check your internet connection"
+    case invalidResponse
+    case unauthorized           = "Unauthorized"
+    case unexpectedStatusCode   = "Unexpected Status Code"
+    case invalidData            = "The data received from the server was invalid. Please try again."
+    case decoding               = "Decoding error"
+    
 }

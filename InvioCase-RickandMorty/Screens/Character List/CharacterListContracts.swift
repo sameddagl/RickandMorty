@@ -19,6 +19,8 @@ enum CharacterListOutput {
     case endLoading
     case updateLocations([LocationPresentation])
     case updateCharacters([CharacterPresentation])
+    case failWithError(NetworkError)
+    case showEmptyState(message: String)
 }
 
 enum CharacterListRoute {

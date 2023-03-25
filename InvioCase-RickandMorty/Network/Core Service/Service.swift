@@ -37,12 +37,12 @@ final class Service: ServiceProtocol {
             }
             
             guard let response = response as? HTTPURLResponse else {
-                completion(.failure(.badResponse))
+                completion(.failure(.invalidResponse))
                 return
             }
             
             guard let data = data else {
-                completion(.failure(.badData))
+                completion(.failure(.invalidData))
                 return
             }
             

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DetailViewController: RMDataLoadingVC {
+final class DetailViewController: UIViewController {
     //MARK: - UI Elements
     private var characterImageView = UIImageView()
     private var statusLabel = RMBodyLabel()
@@ -29,7 +29,6 @@ final class DetailViewController: RMDataLoadingVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.largeTitleDisplayMode = .never
     }
     
     //MARK: - Main Methods
@@ -55,6 +54,10 @@ extension DetailViewController {
     
     private func configureView() {
         view.backgroundColor = .systemBackground
+    }
+    
+    private func setNavigationBar() {
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     private func configureImageView() {

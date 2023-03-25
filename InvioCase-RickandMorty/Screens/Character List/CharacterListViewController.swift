@@ -27,8 +27,7 @@ final class CharacterListViewController: RMDataLoadingVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.largeTitleDisplayMode =  .always
-        navigationController?.navigationBar.prefersLargeTitles = true
+        setNavigationBar()
     }
 }
 
@@ -45,6 +44,10 @@ extension CharacterListViewController: CharacterListViewDelegate {
         case .updateCharacters(let charactersPresentation):
             characters = charactersPresentation
             collectionView.reloadOnMainThread()
+        case .failWithError(let error):
+            showAlert(message: error.rawValue)
+        case .showEmptyState(let message):
+            showAlert(title:"No one around here" ,message: message)
         }
     }
     
@@ -108,6 +111,11 @@ extension CharacterListViewController {
     private func configureView() {
         view.backgroundColor = .systemBackground
         title = "Rick and Morty"
+    }
+    
+    private func setNavigationBar() {
+        navigationItem.largeTitleDisplayMode =  .always
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func createCollectionView() {

@@ -28,14 +28,14 @@ final class SplashScreen: UIViewController {
 extension SplashScreen {
     private func layout() {
         configureView()
-        configure()
+        configureImageAndLabel()
     }
     
     private func configureView() {
         view.backgroundColor = .systemBackground
     }
     
-    private func configure() {
+    private func configureImageAndLabel() {
         view.addSubview(logoImageView)
         logoImageView.image = Images.splashImage
         

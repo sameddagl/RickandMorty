@@ -43,11 +43,14 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
                 //Network call to get characters
                 let residentsIDs = self.parseIDs(from: self.locations[0])
                 
-                guard residentsIDs.count > 0 else { print("No charachter found on \(self.locations[0])"); return}
+                guard residentsIDs.count > 0 else {
+                    self.emptyState(location: self.locations[0])
+                    return
+                }
                 
                 self.requestCharacters(residentsIDs: residentsIDs)
             case .failure(let error):
-                print(error)
+                self.notify(.failWithError(error))
             }
         }
     }
@@ -60,11 +63,17 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
                 
         let selectedLocation = locations.first{ $0.name == locations[index].name }
         
-        guard let selectedLocation else { return } //Error handling
+        guard let selectedLocation else {
+            notify(.endLoading)
+            return
+        }
         
         let residentsIDs = parseIDs(from: selectedLocation)
         
-        guard residentsIDs.count > 0 else { print("No charachter found on \(selectedLocation)"); return}
+        guard residentsIDs.count > 0 else {
+            self.emptyState(location: selectedLocation)
+            return
+        }
         
         requestCharacters(residentsIDs: residentsIDs)
     }
@@ -94,7 +103,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
                 self.characters.append(contentsOf: characters)
                 self.notify(.updateCharacters(self.characters.map{ CharacterPresentation(character: $0) }))
             case .failure(let error):
-                print(error)
+                self.notify(.failWithError(error))
             }
         }
     }
@@ -109,7 +118,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
                 self.characters.append(character)
                 self.notify(.updateCharacters(self.characters.map{ CharacterPresentation(character: $0) }))
             case .failure(let error):
-                print(error)
+                self.notify(.failWithError(error))
             }
         }
     }
@@ -132,6 +141,12 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         locationsPresentation[index].isSelected = true
         
         notify(.updateLocations(locationsPresentation))
+    }
+    
+    private func emptyState(location: LocationResult) {
+        self.notify(.endLoading)
+        self.notify(.updateCharacters([]))
+        self.notify(.showEmptyState(message: "No character found on \(location.name)"))
     }
     
     private func notify(_ output: CharacterListOutput) {
