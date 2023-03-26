@@ -28,6 +28,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
 
         notify(.startLoading)
         
+        //Network call to get locations
         locationsService.getLocations(endPoint: .getLocations(page: currentPage)) { [weak self] result in
             guard let self = self else { return }
                         
@@ -61,12 +62,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         
         selectLocationCell(at: index)
                 
-        let selectedLocation = locations.first{ $0.name == locations[index].name }
-        
-        guard let selectedLocation else {
-            notify(.endLoading)
-            return
-        }
+        let selectedLocation = locations.first{ $0.name == locations[index].name }!
         
         let residentsIDs = parseIDs(from: selectedLocation)
         
@@ -135,6 +131,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     
     private func selectLocationCell(at index: Int) {
         var locationsPresentation = self.locations.map{ LocationPresentation(locationResult: $0) }
+        
         for (index, _) in locationsPresentation.enumerated() {
             locationsPresentation[index].isSelected = false
         }

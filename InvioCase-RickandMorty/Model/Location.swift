@@ -22,6 +22,4 @@ struct LocationResult: Codable {
     let id: Int
     let name: String
     let residents: [String]
-//    let url: String
-//    let created: String
 }

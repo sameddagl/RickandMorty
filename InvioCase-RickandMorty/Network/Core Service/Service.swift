@@ -25,14 +25,15 @@ final class Service: ServiceProtocol {
             completion(.failure(.badURL))
             return
         }
+        
+        print(url)
                                 
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endPoint.method.rawValue
         
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            if let error = error {
+            if error != nil {
                 completion(.failure(.badURL))
-                print(error)
                 return
             }
             
@@ -55,13 +56,11 @@ final class Service: ServiceProtocol {
                     completion(.success(decodedData))
                 }
                 catch {
-                    print(error)
                     completion(.failure(.decoding))
                 }
             case 401:
                 completion(.failure(.unauthorized))
             default:
-                print(response.statusCode)
                 completion(.failure(.unexpectedStatusCode))
             }
         }.resume()

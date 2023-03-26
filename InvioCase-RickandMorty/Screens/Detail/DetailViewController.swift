@@ -9,13 +9,16 @@ import UIKit
 
 final class DetailViewController: UIViewController {
     //MARK: - UI Elements
-    private var characterImageView = UIImageView()
-    private var statusLabel = RMBodyLabel()
-    private var specyLabel = RMBodyLabel()
-    private var genderLabel = RMBodyLabel()
-    private var originLabel = RMBodyLabel()
-    private var locationLabel = RMBodyLabel()
-    private var createdAtLabel = RMBodyLabel()
+    private let scrollView = UIScrollView()
+    private let containerView = UIView()
+    
+    private let characterImageView = UIImageView()
+    private let statusLabel = RMBodyLabel()
+    private let specyLabel = RMBodyLabel()
+    private let genderLabel = RMBodyLabel()
+    private let originLabel = RMBodyLabel()
+    private let locationLabel = RMBodyLabel()
+    private let createdAtLabel = RMBodyLabel()
     
     //MARK: - Properties
     var character: Character!
@@ -29,6 +32,7 @@ final class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setNavigationBar()
     }
     
     //MARK: - Main Methods
@@ -48,8 +52,9 @@ final class DetailViewController: UIViewController {
 extension DetailViewController {
     private func layout() {
         configureView()
+        configureScrollView()
         configureImageView()
-        configureTitleLabels()
+        configureLabels()
     }
     
     private func configureView() {
@@ -60,20 +65,33 @@ extension DetailViewController {
         navigationItem.largeTitleDisplayMode = .never
     }
     
+    private func configureScrollView() {
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.top.leading.bottom.trailing.equalTo(view)
+        }
+        
+        scrollView.addSubview(containerView)
+        containerView.snp.makeConstraints { make in
+            make.top.leading.bottom.trailing.equalTo(scrollView)
+            make.width.equalTo(scrollView.snp.width)
+        }
+    }
+    
     private func configureImageView() {
-        view.addSubview(characterImageView)
+        containerView.addSubview(characterImageView)
         
         characterImageView.layer.cornerRadius = 10
         characterImageView.clipsToBounds = true
                 
         characterImageView.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
+            make.centerX.equalTo(containerView)
             make.width.height.equalTo(275)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalTo(containerView.safeAreaLayoutGuide.snp.top).offset(20)
         }
     }
     
-    private func configureTitleLabels() {
+    private func configureLabels() {
         let statusTitleLabel = RMTitleLabel()
         statusTitleLabel.text = "Status:"
         
@@ -106,12 +124,15 @@ extension DetailViewController {
         mainStack.spacing = 20
         mainStack.distribution = .fillProportionally
         
-        view.addSubview(mainStack)
+        containerView.addSubview(mainStack)
         mainStack.snp.makeConstraints { make in
             make.top.equalTo(characterImageView.snp.bottom).offset(20)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(20)
-            make.trailing.lessThanOrEqualTo(view.safeAreaLayoutGuide.snp.trailing).offset(-20)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.leading.equalTo(containerView.safeAreaLayoutGuide.snp.leading).offset(20)
+            make.trailing.lessThanOrEqualTo(containerView.safeAreaLayoutGuide.snp.trailing).offset(-20)
+        }
+                
+        containerView.snp.makeConstraints { make in
+            make.bottom.equalTo(mainStack.snp.bottom).offset(20)
         }
     }
 }
