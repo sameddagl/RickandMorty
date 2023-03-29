@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - Location
 struct Location: Decodable {
     let info: Info
     let results: [LocationResult]

@@ -12,6 +12,7 @@ final class SplashScreen: UIViewController {
     private var logoImageView = UIImageView()
     private var titleLabel = RMTitleLabel()
     
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()

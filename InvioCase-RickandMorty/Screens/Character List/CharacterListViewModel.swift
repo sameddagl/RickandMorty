@@ -10,6 +10,7 @@ import Foundation
 final class CharacterListViewModel: CharacterListViewModelProtocol {
     weak var delegate: CharacterListViewDelegate?
     
+    //MARK: - Injections
     private let locationsService: LocationsServiceProtocol
     private let charactersService: CharactersServiceProtocol
     
@@ -18,6 +19,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         self.charactersService = charactersService
     }
     
+    //MARK: - Properties
     private var locations = [LocationResult]()
     private var characters = [Character]()
     private var currentPage = 1
