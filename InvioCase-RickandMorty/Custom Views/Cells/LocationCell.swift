@@ -17,14 +17,14 @@ final class LocationCell: UICollectionViewCell {
         configure()
     }
     
-//    override func prepareForReuse() {
-//        titleLabel.text = ""
-//        articleImageView.image = nil
-//    }
+    override func prepareForReuse() {
+        titleLabel.text = ""
+    }
     
     func set(location: LocationPresentation) {
         titleLabel.text = location.name
-        backgroundColor = location.isSelected ? .systemGray3 : .secondarySystemBackground
+        titleLabel.textColor = location.isSelected ? .systemGreen : .label
+//        backgroundColor = location.isSelected ? .systemGray3 : .secondarySystemBackground
     }
 
     private func configure() {

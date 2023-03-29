@@ -86,7 +86,7 @@ final class CharacterCell: UICollectionViewCell {
         case "Genderless":
             return .systemPurple
         default:
-            return .link
+            return .clear
         }
     }
     

@@ -85,9 +85,10 @@ extension DetailViewController {
         characterImageView.clipsToBounds = true
                 
         characterImageView.snp.makeConstraints { make in
-            make.centerX.equalTo(containerView)
-            make.width.height.equalTo(275)
             make.top.equalTo(containerView.safeAreaLayoutGuide.snp.top).offset(20)
+            make.height.equalTo(view.snp.width).multipliedBy(0.7)
+            make.leading.equalTo(view).offset(50)
+            make.trailing.equalTo(view).offset(-50)
         }
     }
     

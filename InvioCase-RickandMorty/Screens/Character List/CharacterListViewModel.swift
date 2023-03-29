@@ -35,7 +35,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
             switch result {
             case .success(let location):
                 let locationResults = location.results
-                self.locations = locationResults
+                self.locations.append(contentsOf: locationResults)
                 
                 var locationsPresentation = self.locations.map{ LocationPresentation(locationResult: $0) }
                 locationsPresentation[0].isSelected = true
