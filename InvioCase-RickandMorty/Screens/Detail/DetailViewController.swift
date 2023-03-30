@@ -86,7 +86,7 @@ extension DetailViewController {
                 
         characterImageView.snp.makeConstraints { make in
             make.top.equalTo(containerView.safeAreaLayoutGuide.snp.top).offset(20)
-            make.height.equalTo(view.snp.width).multipliedBy(0.7)
+            make.height.equalTo(view.snp.width).offset(-100)
             make.leading.equalTo(view).offset(50)
             make.trailing.equalTo(view).offset(-50)
         }

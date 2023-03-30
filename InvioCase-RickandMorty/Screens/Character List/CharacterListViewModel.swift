@@ -26,8 +26,6 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     
     //MARK: - Main Methods
     func load() {
-        UserDefaults.standard.hasOpenedBefore = true
-
         notify(.startLoading)
         
         //Network call to get locations
