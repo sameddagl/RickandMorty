@@ -19,9 +19,6 @@ final class RMBodyLabel: UILabel {
         numberOfLines = 1
         
         font = UIFont(name: "AvenirNext-Regular", size: 22)
-        
-        self.adjustsFontSizeToFitWidth = true
-        self.minimumScaleFactor = 0.85
     }
     
     required init?(coder: NSCoder) {

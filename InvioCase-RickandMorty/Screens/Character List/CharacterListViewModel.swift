@@ -84,7 +84,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     
     //MARK: - Helper Methods
     private func requestCharacters(residentsIDs: String) {
-        if residentsIDs.count <= 1 {
+        if residentsIDs.count <= 2 {
             getSingleCharacter(residentsIDs: residentsIDs)
         }
         else {

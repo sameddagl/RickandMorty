@@ -108,47 +108,59 @@ extension DetailViewController {
     private func configureLabels() {
         let statusTitleLabel = RMTitleLabel()
         statusTitleLabel.text = "Status:"
+        statusTitleLabel.setContentCompressionResistancePriority(.init(751), for: .horizontal)
         
         let specyTitleLabel = RMTitleLabel()
         specyTitleLabel.text = "Specy:"
+        specyTitleLabel.setContentCompressionResistancePriority(.init(751), for: .horizontal)
         
         let genderTitleLabel = RMTitleLabel()
         genderTitleLabel.text = "Gender:"
+        genderTitleLabel.setContentCompressionResistancePriority(.init(751), for: .horizontal)
         
         let originTitleLabel = RMTitleLabel()
         originTitleLabel.text = "Origin:"
+        originTitleLabel.setContentCompressionResistancePriority(.init(751), for: .horizontal)
         
         let locationTitleLabel = RMTitleLabel()
         locationTitleLabel.text = "Location:"
+        locationTitleLabel.setContentCompressionResistancePriority(.init(751), for: .horizontal)
         
         let episodesTitleLabel = RMTitleLabel()
         episodesTitleLabel.text = "Episodes:"
+        episodesTitleLabel.setContentCompressionResistancePriority(.init(751), for: .horizontal)
         
         let createdAtTitleLabel = RMTitleLabel()
         createdAtTitleLabel.numberOfLines = 2
-        createdAtTitleLabel.text = "Created at (in API):"
+        createdAtTitleLabel.text = "Created at\n(in API):"
+        createdAtTitleLabel.setContentCompressionResistancePriority(.init(751), for: .horizontal)
         
         let titleLabelsStack = UIStackView(arrangedSubviews: [statusTitleLabel, specyTitleLabel, genderTitleLabel, originTitleLabel, locationTitleLabel, episodesTitleLabel, createdAtTitleLabel])
-        titleLabelsStack.axis = .vertical
         titleLabelsStack.spacing = 5
-        titleLabelsStack.distribution = .fill
-                
-        let labelsStack = UIStackView(arrangedSubviews: [statusLabel, specyLabel, genderLabel, originLabel, locationLabel, episodesLabel, createdAtLabel])
-        labelsStack.axis = .vertical
-        labelsStack.spacing = 5
-        labelsStack.distribution = .fill
+        titleLabelsStack.axis = .vertical
         
-        let mainStack = UIStackView(arrangedSubviews: [titleLabelsStack, labelsStack])
+        let descriptionsLabelsStack = UIStackView(arrangedSubviews: [statusLabel, specyLabel, genderLabel, originLabel, locationLabel, episodesLabel, createdAtLabel])
+        descriptionsLabelsStack.spacing = 5
+        descriptionsLabelsStack.axis = .vertical
+        
+        let mainStack = UIStackView(arrangedSubviews: [titleLabelsStack, descriptionsLabelsStack])
+        mainStack.axis = .horizontal
         mainStack.spacing = 20
-        mainStack.distribution = .fill
         
         containerView.addSubview(mainStack)
         mainStack.snp.makeConstraints { make in
             make.top.equalTo(characterImageView.snp.bottom).offset(20)
             make.leading.equalTo(containerView.safeAreaLayoutGuide.snp.leading).offset(20)
-            make.trailing.lessThanOrEqualTo(containerView.safeAreaLayoutGuide.snp.trailing).offset(-20)
+            make.trailing.equalTo(containerView.safeAreaLayoutGuide.snp.trailing).offset(-20)
             make.bottom.lessThanOrEqualTo(containerView.safeAreaLayoutGuide.snp.bottom).offset(-20)
         }
+    }
+    
+    private func makeStack(views: UIView...) -> UIStackView {
+        let stack = UIStackView(arrangedSubviews: views)
+        stack.distribution = .fill
+        stack.spacing = 20
+        return stack
     }
 }
 
