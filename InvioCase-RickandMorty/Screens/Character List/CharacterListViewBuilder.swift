@@ -15,6 +15,6 @@ struct CharacterListViewBuilder {
         vc.viewModel = viewModel
         viewModel.delegate = vc
         
-        return vc
+        return UINavigationController(rootViewController: vc)
     }
 }

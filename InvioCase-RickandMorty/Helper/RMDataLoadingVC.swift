@@ -14,6 +14,7 @@ class RMDataLoadingVC: UIViewController {
         container = UIView()
         
         view.addSubview(container)
+        container.backgroundColor = .systemGray3.withAlphaComponent(0.2)
         
         container.snp.makeConstraints { make in
             make.top.leading.bottom.trailing.equalTo(view)

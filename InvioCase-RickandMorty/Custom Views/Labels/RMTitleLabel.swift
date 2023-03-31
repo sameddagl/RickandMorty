@@ -16,7 +16,7 @@ final class RMTitleLabel: UILabel {
     
     private func configure() {
         lineBreakMode = .byTruncatingTail
-        numberOfLines = 2
+        numberOfLines = 1
         
         font = UIFont(name: "AvenirNext-Bold", size: 22)
         

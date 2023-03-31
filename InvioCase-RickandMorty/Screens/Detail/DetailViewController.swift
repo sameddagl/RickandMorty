@@ -18,7 +18,11 @@ final class DetailViewController: UIViewController {
     private let genderLabel = RMBodyLabel()
     private let originLabel = RMBodyLabel()
     private let locationLabel = RMBodyLabel()
+    private let episodesLabel = RMBodyLabel()
     private let createdAtLabel = RMBodyLabel()
+    
+    //MARK: - Injections
+    var viewModel: DetailViewModelProtocol!
     
     //MARK: - Properties
     var character: Character!
@@ -27,24 +31,30 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        setInfos()
+        viewModel.load()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBar()
     }
-    
-    //MARK: - Main Methods
-    private func setInfos() {
-        title = character.name
-        characterImageView.sd_setImage(with: URL(string: character.image), placeholderImage: Images.placeholder)
-        statusLabel.text = character.status
-        specyLabel.text = character.species
-        genderLabel.text = character.gender
-        originLabel.text = character.origin.name
-        locationLabel.text = character.location.name
-        createdAtLabel.text = character.created.formatDate
+}
+
+//MARK: - View Model Outputs
+extension DetailViewController: DetailViewDelegate {
+    func handleViewModelOutput(_ output: DetailViewModelOutput) {
+        switch output {
+        case .updateCharacter(let character):
+            title = character.name
+            characterImageView.sd_setImage(with: URL(string: character.image), placeholderImage: Images.placeholder)
+            statusLabel.text = character.status
+            specyLabel.text = character.specy
+            genderLabel.text = character.gender
+            originLabel.text = character.origin
+            locationLabel.text = character.location
+            episodesLabel.text = character.episodes
+            createdAtLabel.text = character.createdAt.formatDate
+        }
     }
 }
 
@@ -68,12 +78,15 @@ extension DetailViewController {
     private func configureScrollView() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.top.leading.bottom.trailing.equalTo(view)
+            make.centerX.equalTo(view.snp.centerX)
+            make.top.bottom.equalTo(view)
+            make.width.equalTo(view.snp.width)
         }
         
         scrollView.addSubview(containerView)
         containerView.snp.makeConstraints { make in
-            make.top.leading.bottom.trailing.equalTo(scrollView)
+            make.centerX.equalTo(scrollView.snp.centerX)
+            make.top.bottom.equalTo(scrollView)
             make.width.equalTo(scrollView.snp.width)
         }
     }
@@ -108,32 +121,33 @@ extension DetailViewController {
         let locationTitleLabel = RMTitleLabel()
         locationTitleLabel.text = "Location:"
         
-        let createdAtTitleLabel = RMTitleLabel()
-        createdAtTitleLabel.text = "Created at:"
+        let episodesTitleLabel = RMTitleLabel()
+        episodesTitleLabel.text = "Episodes:"
         
-        let titleLabelsStack = UIStackView(arrangedSubviews: [statusTitleLabel, specyTitleLabel, genderTitleLabel, originTitleLabel, locationTitleLabel, createdAtTitleLabel])
+        let createdAtTitleLabel = RMTitleLabel()
+        createdAtTitleLabel.numberOfLines = 2
+        createdAtTitleLabel.text = "Created at (in API):"
+        
+        let titleLabelsStack = UIStackView(arrangedSubviews: [statusTitleLabel, specyTitleLabel, genderTitleLabel, originTitleLabel, locationTitleLabel, episodesTitleLabel, createdAtTitleLabel])
         titleLabelsStack.axis = .vertical
         titleLabelsStack.spacing = 5
-        titleLabelsStack.distribution = .fillEqually
+        titleLabelsStack.distribution = .fill
                 
-        let labelsStack = UIStackView(arrangedSubviews: [statusLabel, specyLabel, genderLabel, originLabel, locationLabel, createdAtLabel])
+        let labelsStack = UIStackView(arrangedSubviews: [statusLabel, specyLabel, genderLabel, originLabel, locationLabel, episodesLabel, createdAtLabel])
         labelsStack.axis = .vertical
         labelsStack.spacing = 5
-        labelsStack.distribution = .fillEqually
+        labelsStack.distribution = .fill
         
         let mainStack = UIStackView(arrangedSubviews: [titleLabelsStack, labelsStack])
         mainStack.spacing = 20
-        mainStack.distribution = .fillProportionally
+        mainStack.distribution = .fill
         
         containerView.addSubview(mainStack)
         mainStack.snp.makeConstraints { make in
             make.top.equalTo(characterImageView.snp.bottom).offset(20)
             make.leading.equalTo(containerView.safeAreaLayoutGuide.snp.leading).offset(20)
             make.trailing.lessThanOrEqualTo(containerView.safeAreaLayoutGuide.snp.trailing).offset(-20)
-        }
-                
-        containerView.snp.makeConstraints { make in
-            make.bottom.equalTo(mainStack.snp.bottom).offset(20)
+            make.bottom.lessThanOrEqualTo(containerView.safeAreaLayoutGuide.snp.bottom).offset(-20)
         }
     }
 }

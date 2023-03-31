@@ -8,13 +8,12 @@
 import Foundation
 
 enum CharactersEndPoint: HTTPEndpoint {
-    case getCharacters(ids: [Int])
+    case getCharacters(ids: String)
     
     var path: String {
         switch self {
         case .getCharacters(let ids):
-            let stringIDs = ids.compactMap{ String($0) }.joined(separator: ",")
-            return "\(Paths.characters)\(stringIDs)"
+            return "\(Paths.characters)\(ids)"
         }
     }
     

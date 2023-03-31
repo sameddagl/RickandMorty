@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2C16177A29CCDFA300D76513 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2C16177929CCDFA300D76513 /* SDWebImage */; };
+		2C2CAD8D29D6E121005E2702 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CAD8C29D6E121005E2702 /* DetailViewModel.swift */; };
+		2C2CAD8F29D6E12D005E2702 /* DetailViewContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CAD8E29D6E12D005E2702 /* DetailViewContracts.swift */; };
+		2C2CAD9129D6E213005E2702 /* CharacterDetailPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CAD9029D6E213005E2702 /* CharacterDetailPresentation.swift */; };
+		2C2CAD9329D6E4EB005E2702 /* DetailViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CAD9229D6E4EB005E2702 /* DetailViewBuilder.swift */; };
 		2C34AFC329CED579002935A2 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C34AFC229CED579002935A2 /* UserDefaults+Extension.swift */; };
 		2C69D62829CB6EF6003FCED8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D62729CB6EF6003FCED8 /* AppDelegate.swift */; };
 		2C69D62A29CB6EF6003FCED8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69D62929CB6EF6003FCED8 /* SceneDelegate.swift */; };
@@ -51,6 +55,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C2CAD8C29D6E121005E2702 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		2C2CAD8E29D6E12D005E2702 /* DetailViewContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewContracts.swift; sourceTree = "<group>"; };
+		2C2CAD9029D6E213005E2702 /* CharacterDetailPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresentation.swift; sourceTree = "<group>"; };
+		2C2CAD9229D6E4EB005E2702 /* DetailViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewBuilder.swift; sourceTree = "<group>"; };
 		2C34AFC229CED579002935A2 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		2C69D62429CB6EF6003FCED8 /* InvioCase-RickandMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InvioCase-RickandMorty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C69D62729CB6EF6003FCED8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -262,7 +270,11 @@
 		2C8FA78C29CDDA4900FE3D22 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2C2CAD9229D6E4EB005E2702 /* DetailViewBuilder.swift */,
 				2CF0F0C529CE204F00FA71BF /* DetailViewController.swift */,
+				2C2CAD8C29D6E121005E2702 /* DetailViewModel.swift */,
+				2C2CAD8E29D6E12D005E2702 /* DetailViewContracts.swift */,
+				2C2CAD9029D6E213005E2702 /* CharacterDetailPresentation.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -400,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2CAD8F29D6E12D005E2702 /* DetailViewContracts.swift in Sources */,
 				2CF0F0C629CE204F00FA71BF /* DetailViewController.swift in Sources */,
 				2CD22D7B29CCD77800025FE1 /* CharacterCell.swift in Sources */,
 				2CD22D8029CCD89D00025FE1 /* RMCellImageView.swift in Sources */,
@@ -407,9 +420,11 @@
 				2CD22D7829CCD65200025FE1 /* RMBodyLabel.swift in Sources */,
 				2C8FA78B29CDD16900FE3D22 /* RMCellDetailLabel.swift in Sources */,
 				2C69D65729CB7297003FCED8 /* LocationsService.swift in Sources */,
+				2C2CAD8D29D6E121005E2702 /* DetailViewModel.swift in Sources */,
 				2CD22D8229CCDAAF00025FE1 /* RMCellLabel.swift in Sources */,
 				2CF0F0CB29CE28CE00FA71BF /* String+Extension.swift in Sources */,
 				2C69D65929CB88C4003FCED8 /* Location.swift in Sources */,
+				2C2CAD9329D6E4EB005E2702 /* DetailViewBuilder.swift in Sources */,
 				2C6F977229CDC46400DDDEF9 /* RMDataLoadingVC.swift in Sources */,
 				2CD22D6329CCA84D00025FE1 /* Int+Extension.swift in Sources */,
 				2C69D64E29CB71CC003FCED8 /* Paths.swift in Sources */,
@@ -430,6 +445,7 @@
 				2C69D64C29CB71AA003FCED8 /* HTTPEndPoint.swift in Sources */,
 				2C69D65529CB7261003FCED8 /* LocationsEndPoint.swift in Sources */,
 				2C69D64629CB7028003FCED8 /* CharacterListViewController.swift in Sources */,
+				2C2CAD9129D6E213005E2702 /* CharacterDetailPresentation.swift in Sources */,
 				2CD22D6929CCC61F00025FE1 /* CharactersService.swift in Sources */,
 				2CF0F0CD29CE2F4400FA71BF /* SplashScreen.swift in Sources */,
 				2CD22D6729CCC4EC00025FE1 /* CharactersEndPoint.swift in Sources */,

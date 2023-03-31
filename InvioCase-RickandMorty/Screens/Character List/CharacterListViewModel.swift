@@ -51,25 +51,28 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
                 
                 self.requestCharacters(residentsIDs: residentsIDs)
             case .failure(let error):
+                print("error")
                 self.notify(.failWithError(error))
             }
         }
     }
     
     func selectLocation(at index: Int) {
-        characters.removeAll()
         notify(.startLoading)
-        
-        selectLocationCell(at: index)
-                
+                        
         let selectedLocation = locations.first{ $0.name == locations[index].name }!
         
         let residentsIDs = parseIDs(from: selectedLocation)
         
         guard residentsIDs.count > 0 else {
+            print("no one")
             self.emptyState(location: selectedLocation)
             return
         }
+                
+        characters.removeAll()
+        
+        selectLocationCell(at: index)
         
         requestCharacters(residentsIDs: residentsIDs)
     }
@@ -80,7 +83,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     }
     
     //MARK: - Helper Methods
-    private func requestCharacters(residentsIDs: [Int]) {
+    private func requestCharacters(residentsIDs: String) {
         if residentsIDs.count <= 1 {
             getSingleCharacter(residentsIDs: residentsIDs)
         }
@@ -89,7 +92,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         }
     }
     
-    private func getMultipleCharacters(residentsIDs: [Int]) {
+    private func getMultipleCharacters(residentsIDs: String) {
         self.charactersService.getCharacters(endPoint: CharactersEndPoint.getCharacters(ids: residentsIDs)) { [weak self] result in
             guard let self = self else { return }
 
@@ -104,7 +107,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         }
     }
     
-    private func getSingleCharacter(residentsIDs: [Int]) {
+    private func getSingleCharacter(residentsIDs: String) {
         self.charactersService.getCharacter(endPoint: CharactersEndPoint.getCharacters(ids: residentsIDs)) { [weak self] result in
             guard let self = self else { return }
 
@@ -119,14 +122,16 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         }
     }
     
-    private func parseIDs(from location: LocationResult) -> [Int] {
+    private func parseIDs(from location: LocationResult) -> String {
         var residentsID = [Int]()
         
         location.residents.forEach { residentURL in
             residentsID.append(Int.parse(from: residentURL))
         }
         
-        return residentsID
+        let stringIDs = residentsID.compactMap{ String($0) }.joined(separator: ",")
+
+        return stringIDs
     }
     
     private func selectLocationCell(at index: Int) {
@@ -142,7 +147,6 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     
     private func emptyState(location: LocationResult) {
         self.notify(.endLoading)
-        self.notify(.updateCharacters([]))
         self.notify(.showEmptyState(message: "No character found on \(location.name)"))
     }
     

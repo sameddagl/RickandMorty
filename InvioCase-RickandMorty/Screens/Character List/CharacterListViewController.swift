@@ -54,8 +54,7 @@ extension CharacterListViewController: CharacterListViewDelegate {
     func navigate(to route: CharacterListRoute) {
         switch route {
         case .detail(let character):
-            let vc = DetailViewController()
-            vc.character = character
+            let vc = DetailViewBuilder.build(character: character)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

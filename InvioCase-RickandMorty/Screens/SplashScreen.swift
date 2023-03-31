@@ -20,7 +20,7 @@ final class SplashScreen: UIViewController {
         UserDefaults.standard.hasOpenedBefore = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let vc = UINavigationController(rootViewController: CharacterListViewBuilder.build())
+            let vc = CharacterListViewBuilder.build()
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         }
