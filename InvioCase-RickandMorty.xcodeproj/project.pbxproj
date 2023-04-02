@@ -35,7 +35,7 @@
 		2C6F977029CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F976F29CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift */; };
 		2C6F977229CDC46400DDDEF9 /* RMDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F977129CDC46400DDDEF9 /* RMDataLoadingVC.swift */; };
 		2C8FA78B29CDD16900FE3D22 /* RMCellDetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8FA78A29CDD16900FE3D22 /* RMCellDetailLabel.swift */; };
-		2CD22D6329CCA84D00025FE1 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6229CCA84D00025FE1 /* Int+Extension.swift */; };
+		2CCD9DBE29D973DD008A4D71 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD9DBD29D973DD008A4D71 /* Helper.swift */; };
 		2CD22D6729CCC4EC00025FE1 /* CharactersEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6629CCC4EC00025FE1 /* CharactersEndPoint.swift */; };
 		2CD22D6929CCC61F00025FE1 /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6829CCC61F00025FE1 /* CharactersService.swift */; };
 		2CD22D6B29CCC64800025FE1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6A29CCC64800025FE1 /* Character.swift */; };
@@ -84,7 +84,7 @@
 		2C6F976F29CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutDimension+Extension.swift"; sourceTree = "<group>"; };
 		2C6F977129CDC46400DDDEF9 /* RMDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMDataLoadingVC.swift; sourceTree = "<group>"; };
 		2C8FA78A29CDD16900FE3D22 /* RMCellDetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCellDetailLabel.swift; sourceTree = "<group>"; };
-		2CD22D6229CCA84D00025FE1 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		2CCD9DBD29D973DD008A4D71 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		2CD22D6629CCC4EC00025FE1 /* CharactersEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersEndPoint.swift; sourceTree = "<group>"; };
 		2CD22D6829CCC61F00025FE1 /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
 		2CD22D6A29CCC64800025FE1 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -202,6 +202,7 @@
 			children = (
 				2CD22D8329CCDCA900025FE1 /* Constants.swift */,
 				2C6F977129CDC46400DDDEF9 /* RMDataLoadingVC.swift */,
+				2CCD9DBD29D973DD008A4D71 /* Helper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -209,7 +210,6 @@
 		2C69D64129CB6FDB003FCED8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2CD22D6229CCA84D00025FE1 /* Int+Extension.swift */,
 				2CD22D7129CCD00A00025FE1 /* UICollectionView+Extension.swift */,
 				2C6F976F29CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift */,
 				2CF0F0CA29CE28CE00FA71BF /* String+Extension.swift */,
@@ -426,7 +426,6 @@
 				2C69D65929CB88C4003FCED8 /* Location.swift in Sources */,
 				2C2CAD9329D6E4EB005E2702 /* DetailViewBuilder.swift in Sources */,
 				2C6F977229CDC46400DDDEF9 /* RMDataLoadingVC.swift in Sources */,
-				2CD22D6329CCA84D00025FE1 /* Int+Extension.swift in Sources */,
 				2C69D64E29CB71CC003FCED8 /* Paths.swift in Sources */,
 				2C69D65229CB7206003FCED8 /* Service.swift in Sources */,
 				2C69D66029CB8B4A003FCED8 /* CharacterListContracts.swift in Sources */,
@@ -441,6 +440,7 @@
 				2CD22D7229CCD00A00025FE1 /* UICollectionView+Extension.swift in Sources */,
 				2C69D62A29CB6EF6003FCED8 /* SceneDelegate.swift in Sources */,
 				2C69D66229CB8B54003FCED8 /* CharacterListViewBuilder.swift in Sources */,
+				2CCD9DBE29D973DD008A4D71 /* Helper.swift in Sources */,
 				2C6F976E29CDA2A300DDDEF9 /* LocationCell.swift in Sources */,
 				2C69D64C29CB71AA003FCED8 /* HTTPEndPoint.swift in Sources */,
 				2C69D65529CB7261003FCED8 /* LocationsEndPoint.swift in Sources */,

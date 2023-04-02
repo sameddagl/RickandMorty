@@ -10,28 +10,20 @@ import Foundation
 final class DetailViewModel: DetailViewModelProtocol {
     weak var delegate: DetailViewDelegate?
     
+    //MARK: - Injections
     private let character: Character
     
     init(character: Character) {
         self.character = character
     }
     
+    //MARK: - Main Methods
     func load() {
-        notify(.updateCharacter(CharacterDetailPresentation(character: character, episodes: parseEpisodes(from: character.episode))))
+        let presentation = CharacterDetailPresentation(character: character, episodes: Helper.parseInts(from: character.episode))
+        notify(.updateCharacter(presentation))
     }
     
-    private func parseEpisodes(from episodes: [String]) -> String {
-        var intEpisodes = [Int]()
-        
-        episodes.forEach { episode in
-            intEpisodes.append(Int.parse(from: episode))
-        }
-        
-        let stringEpisodes = intEpisodes.compactMap { String($0) }.joined(separator:", ")
-        
-        return stringEpisodes
-    }
-    
+    //MARK: - Helper Methods
     private func notify(_ output: DetailViewModelOutput) {
         delegate?.handleViewModelOutput(output)
     }

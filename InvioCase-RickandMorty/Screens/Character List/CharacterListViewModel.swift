@@ -42,7 +42,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
                 self.notify(.updateLocations(locationsPresentation))
                 
                 //Network call to get characters
-                let residentsIDs = self.parseIDs(from: self.locations[0])
+                let residentsIDs = parseIDs(from: self.locations[0])
                 
                 guard residentsIDs.count > 0 else {
                     self.emptyState(location: self.locations[0])
@@ -121,17 +121,9 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
             }
         }
     }
-    
-    private func parseIDs(from location: LocationResult) -> String {
-        var residentsID = [Int]()
-        
-        location.residents.forEach { residentURL in
-            residentsID.append(Int.parse(from: residentURL))
-        }
-        
-        let stringIDs = residentsID.compactMap{ String($0) }.joined(separator: ",")
 
-        return stringIDs
+    private func parseIDs(from location: LocationResult) -> String {
+        return Helper.parseInts(from: location.residents)
     }
     
     private func selectLocationCell(at index: Int) {

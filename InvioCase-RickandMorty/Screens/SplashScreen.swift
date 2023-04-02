@@ -45,7 +45,7 @@ extension SplashScreen {
         logoImageView.snp.makeConstraints { make in
             make.centerX.equalTo(view)
             make.centerY.equalTo(view).offset(-20)
-            make.width.height.equalTo(view.snp.width).multipliedBy(0.7)
+            make.width.height.equalTo(250)
         }
         
         view.addSubview(titleLabel)
