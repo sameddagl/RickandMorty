@@ -65,7 +65,6 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         let residentsIDs = parseIDs(from: selectedLocation)
         
         guard residentsIDs.count > 0 else {
-            print("no one")
             self.emptyState(location: selectedLocation)
             return
         }
@@ -83,12 +82,14 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     }
     
     //MARK: - Helper Methods
-    private func requestCharacters(residentsIDs: String) {
-        if residentsIDs.count <= 2 {
-            getSingleCharacter(residentsIDs: residentsIDs)
+    private func requestCharacters(residentsIDs: [String]) {
+        let stringIDs = joinByComma(residentsIDs)
+        
+        if residentsIDs.count <= 1 {
+            getSingleCharacter(residentsIDs: stringIDs)
         }
         else {
-            getMultipleCharacters(residentsIDs: residentsIDs)
+            getMultipleCharacters(residentsIDs: stringIDs)
         }
     }
     
@@ -100,7 +101,8 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
             switch result {
             case .success(let characters):
                 self.characters.append(contentsOf: characters)
-                self.notify(.updateCharacters(self.characters.map{ CharacterPresentation(character: $0) }))
+                let presentation = self.characters.map{ CharacterPresentation(character: $0) }
+                self.notify(.updateCharacters(presentation))
             case .failure(let error):
                 self.notify(.failWithError(error))
             }
@@ -115,15 +117,20 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
             switch result {
             case .success(let character):
                 self.characters.append(character)
-                self.notify(.updateCharacters(self.characters.map{ CharacterPresentation(character: $0) }))
+                let presentation = self.characters.map{ CharacterPresentation(character: $0) }
+                self.notify(.updateCharacters(presentation))
             case .failure(let error):
                 self.notify(.failWithError(error))
             }
         }
     }
 
-    private func parseIDs(from location: LocationResult) -> String {
+    private func parseIDs(from location: LocationResult) -> [String] {
         return Helper.parseInts(from: location.residents)
+    }
+    
+    private func joinByComma(_ stringArray: [String]) -> String {
+        return Helper.joinedByComma(stringArray: stringArray)
     }
     
     private func selectLocationCell(at index: Int) {

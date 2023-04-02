@@ -8,6 +8,7 @@
 import Foundation
 
 enum NetworkError: String, Error {
+    #warning("Error handling")
     case badURL                 = "Unable to complete your request. Please check your internet connection"
     case invalidResponse        = "Invalid response"
     case unauthorized           = "Unauthorized"

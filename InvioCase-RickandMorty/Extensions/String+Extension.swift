@@ -11,6 +11,7 @@ extension String {
     var formatDate: String {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
         let date = dateFormatterGet.date(from: self)!
 
         let dateFormatterPrint = DateFormatter()

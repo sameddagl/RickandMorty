@@ -18,7 +18,7 @@ final class RMBodyLabel: UILabel {
         lineBreakMode = .byTruncatingTail
         numberOfLines = 1
         
-        font = UIFont(name: "AvenirNext-Regular", size: 22)
+        font = UIFont(name: "Avenir-Medium", size: 22)
     }
     
     required init?(coder: NSCoder) {

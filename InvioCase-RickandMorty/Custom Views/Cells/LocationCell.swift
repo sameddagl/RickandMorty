@@ -24,7 +24,6 @@ final class LocationCell: UICollectionViewCell {
     func set(location: LocationPresentation) {
         titleLabel.text = location.name
         titleLabel.textColor = location.isSelected ? .systemGreen : .label
-//        backgroundColor = location.isSelected ? .systemGray3 : .secondarySystemBackground
     }
 
     private func configure() {
@@ -35,7 +34,6 @@ final class LocationCell: UICollectionViewCell {
         titleLabel.textAlignment = .center
         
         titleLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(self)
             make.top.equalTo(self).offset(5)
             make.leading.equalTo(self).offset(5)
             make.trailing.equalTo(self).offset(-5)

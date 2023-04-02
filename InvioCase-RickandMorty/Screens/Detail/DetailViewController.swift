@@ -155,12 +155,5 @@ extension DetailViewController {
             make.bottom.lessThanOrEqualTo(containerView.safeAreaLayoutGuide.snp.bottom).offset(-20)
         }
     }
-    
-    private func makeStack(views: UIView...) -> UIStackView {
-        let stack = UIStackView(arrangedSubviews: views)
-        stack.distribution = .fill
-        stack.spacing = 20
-        return stack
-    }
 }
 

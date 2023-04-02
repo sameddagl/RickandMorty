@@ -15,13 +15,14 @@ final class RMCellDetailLabel: UILabel {
     }
     
     private func configure() {
+        lineBreakMode = .byTruncatingTail
         numberOfLines = 1
         
         font = .systemFont(ofSize: 14)
         textColor = .secondaryLabel
         
         self.adjustsFontSizeToFitWidth = true
-        self.minimumScaleFactor = 0.95
+        self.minimumScaleFactor = 0.90
     }
     
     required init?(coder: NSCoder) {

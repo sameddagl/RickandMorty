@@ -19,7 +19,8 @@ final class DetailViewModel: DetailViewModelProtocol {
     
     //MARK: - Main Methods
     func load() {
-        let presentation = CharacterDetailPresentation(character: character, episodes: Helper.parseInts(from: character.episode))
+        let episodes = Helper.joinedByComma(stringArray: Helper.parseInts(from: character.episode))
+        let presentation = CharacterDetailPresentation(character: character, episodes: episodes)
         notify(.updateCharacter(presentation))
     }
     

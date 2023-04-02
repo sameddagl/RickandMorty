@@ -8,15 +8,18 @@
 import Foundation
 
 struct Helper {
-    static func parseInts(from stringArray: [String]) -> String {
+    static func parseInts(from stringArray: [String]) -> [String] {
         var parsedInts = [String]()
         
         stringArray.forEach { intValue in
             parsedInts.append(intValue.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
         }
         
-        let stringIDs = parsedInts.compactMap{ String($0) }.joined(separator: ",")
-
-        return stringIDs
+        return parsedInts
+    }
+    
+    static func joinedByComma(stringArray: [String]) -> String {
+        let joinedString = stringArray.compactMap{ String($0) }.joined(separator: ",")
+        return joinedString
     }
 }
