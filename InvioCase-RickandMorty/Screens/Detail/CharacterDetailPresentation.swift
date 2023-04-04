@@ -16,8 +16,7 @@ struct CharacterDetailPresentation {
     let origin: String
     let location: String
     let episodes: String
-    let createdAt: String
-    
+    let createdAt: String    
     
     init(character: Character, episodes: String) {
         self.name = character.name

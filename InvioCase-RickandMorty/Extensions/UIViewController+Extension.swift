@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIViewController {
+    
     func showAlert(title: String? = "Error", message: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

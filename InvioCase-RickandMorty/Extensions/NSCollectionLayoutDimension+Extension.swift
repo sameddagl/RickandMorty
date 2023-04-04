@@ -8,6 +8,7 @@
 import UIKit
 
 extension NSCollectionLayoutDimension {
+    
     static func fractionalWidth(forTargetSize size: CGFloat, inEnvironment environment: NSCollectionLayoutEnvironment) -> Self {
         let containerWidth = environment.container.effectiveContentSize.width
         let itemCount = containerWidth / size

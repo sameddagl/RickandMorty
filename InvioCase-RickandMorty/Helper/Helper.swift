@@ -8,6 +8,7 @@
 import Foundation
 
 struct Helper {
+    
     static func parseInts(from stringArray: [String]) -> [String] {
         var parsedInts = [String]()
         

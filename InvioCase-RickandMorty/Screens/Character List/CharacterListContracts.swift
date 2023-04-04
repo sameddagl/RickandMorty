@@ -12,6 +12,7 @@ protocol CharacterListViewModelProtocol {
     func load()
     func selectLocation(at index: Int)
     func selectCharacter(at index: Int)
+    func viewDidLayoutSubviews()
 }
 
 enum CharacterListOutput {
@@ -19,6 +20,7 @@ enum CharacterListOutput {
     case endLoading
     case updateLocations([LocationPresentation])
     case updateCharacters([CharacterPresentation])
+    case scrollToSelectedLocation(IndexPath)
     case failWithError(NetworkError)
     case showEmptyState(message: String)
 }

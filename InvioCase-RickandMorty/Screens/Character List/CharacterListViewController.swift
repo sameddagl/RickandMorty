@@ -29,6 +29,11 @@ final class CharacterListViewController: RMDataLoadingVC {
         super.viewWillAppear(animated)
         setNavigationBar()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        viewModel.viewDidLayoutSubviews()
+    }
 }
 
 //MARK: - View Model Outputs
@@ -44,6 +49,8 @@ extension CharacterListViewController: CharacterListViewDelegate {
         case .updateCharacters(let charactersPresentation):
             characters = charactersPresentation
             collectionView.reloadOnMainThread()
+        case .scrollToSelectedLocation(let indexPath):
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         case .failWithError(let error):
             showAlert(message: error.rawValue)
         case .showEmptyState(let message):

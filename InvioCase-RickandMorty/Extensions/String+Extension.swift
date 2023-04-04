@@ -8,6 +8,7 @@
 import Foundation
 
 extension String {
+    
     var formatDate: String {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -15,6 +16,7 @@ extension String {
         let date = dateFormatterGet.date(from: self)!
 
         let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.locale = Locale(identifier: "en-US")
         dateFormatterPrint.dateFormat = "dd MMM yyyy, HH:mm"
         
         return dateFormatterPrint.string(from: date)

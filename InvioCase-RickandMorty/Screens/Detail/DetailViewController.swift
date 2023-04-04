@@ -38,6 +38,19 @@ final class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         setNavigationBar()
     }
+    
+    //MARK: - Main Methods
+    private func setInfos(of character: CharacterDetailPresentation) {
+        title = character.name
+        characterImageView.sd_setImage(with: URL(string: character.image), placeholderImage: Images.placeholder)
+        statusLabel.text = character.status
+        specyLabel.text = character.specy
+        genderLabel.text = character.gender
+        originLabel.text = character.origin
+        locationLabel.text = character.location
+        episodesLabel.text = character.episodes
+        createdAtLabel.text = character.createdAt.formatDate
+    }
 }
 
 //MARK: - View Model Outputs
@@ -45,18 +58,11 @@ extension DetailViewController: DetailViewDelegate {
     func handleViewModelOutput(_ output: DetailViewModelOutput) {
         switch output {
         case .updateCharacter(let character):
-            title = character.name
-            characterImageView.sd_setImage(with: URL(string: character.image), placeholderImage: Images.placeholder)
-            statusLabel.text = character.status
-            specyLabel.text = character.specy
-            genderLabel.text = character.gender
-            originLabel.text = character.origin
-            locationLabel.text = character.location
-            episodesLabel.text = character.episodes
-            createdAtLabel.text = character.createdAt.formatDate
+            setInfos(of: character)
         }
     }
 }
+
 
 //MARK: - UI Related
 extension DetailViewController {

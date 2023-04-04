@@ -23,6 +23,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     private var locations = [LocationResult]()
     private var characters = [Character]()
     private var currentPage = 1
+    private var selectedLocationIndex = 0
     
     //MARK: - Main Methods
     func load() {
@@ -59,7 +60,8 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     
     func selectLocation(at index: Int) {
         notify(.startLoading)
-                        
+        selectedLocationIndex = index
+        
         let selectedLocation = locations.first{ $0.name == locations[index].name }!
         
         let residentsIDs = parseIDs(from: selectedLocation)
@@ -81,6 +83,12 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         delegate?.navigate(to: .detail(selectedCharacter))
     }
     
+    func viewDidLayoutSubviews() {
+        if !locations.isEmpty {
+            notify(.scrollToSelectedLocation(IndexPath(item: selectedLocationIndex, section: 0)))
+        }
+    }
+    
     //MARK: - Helper Methods
     private func requestCharacters(residentsIDs: [String]) {
         let stringIDs = joinByComma(residentsIDs)
@@ -94,7 +102,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     }
     
     private func getMultipleCharacters(residentsIDs: String) {
-        self.charactersService.getCharacters(endPoint: CharactersEndPoint.getCharacters(ids: residentsIDs)) { [weak self] result in
+        self.charactersService.getCharacters(endPoint: .getCharacters(ids: residentsIDs)) { [weak self] result in
             guard let self = self else { return }
 
             self.notify(.endLoading)
@@ -110,7 +118,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     }
     
     private func getSingleCharacter(residentsIDs: String) {
-        self.charactersService.getCharacter(endPoint: CharactersEndPoint.getCharacters(ids: residentsIDs)) { [weak self] result in
+        self.charactersService.getCharacter(endPoint: .getCharacters(ids: residentsIDs)) { [weak self] result in
             guard let self = self else { return }
 
             self.notify(.endLoading)
