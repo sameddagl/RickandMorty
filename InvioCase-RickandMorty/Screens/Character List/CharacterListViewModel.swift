@@ -52,8 +52,8 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
                 
                 self.requestCharacters(residentsIDs: residentsIDs)
             case .failure(let error):
-                print("error")
                 self.notify(.failWithError(error))
+                self.notify(.endLoading)
             }
         }
     }

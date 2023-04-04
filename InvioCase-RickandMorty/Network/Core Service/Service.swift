@@ -31,7 +31,7 @@ final class Service: ServiceProtocol {
         
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if error != nil {
-                completion(.failure(.badURL))
+                completion(.failure(.unableToComplete))
                 return
             }
             
@@ -54,7 +54,6 @@ final class Service: ServiceProtocol {
                     completion(.success(decodedData))
                 }
                 catch {
-                    print(error)
                     completion(.failure(.decoding))
                 }
             case 401:
