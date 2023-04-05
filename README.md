@@ -26,6 +26,9 @@ bulunmaktadır. Lokasyonlar seçildiğinde, lokasyonda bulunan karakterler gelme
 - SDWebImage
 
 ## Screenshots
+### Splash Screen
+<img src="https://user-images.githubusercontent.com/83546571/230061689-357f9db7-bcfe-4e2c-b711-90eedceb71f7.png" width="294" height="620" />
+
 ### Home Screen
 <img src="https://user-images.githubusercontent.com/83546571/228595116-43b71f86-81cf-465e-935a-f205ecc291b6.png" width="294" height="620" />
 
