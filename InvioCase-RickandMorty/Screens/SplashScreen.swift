@@ -19,10 +19,9 @@ final class SplashScreen: UIViewController {
         
         UserDefaults.standard.hasOpenedBefore = true
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
             let vc = CharacterListViewBuilder.build()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
+            self?.navigationController?.setViewControllers([vc], animated: true)
         }
     }
 }
@@ -31,14 +30,15 @@ final class SplashScreen: UIViewController {
 extension SplashScreen {
     private func layout() {
         configureView()
-        configureImageAndLabel()
+        configureLogoImageView()
+        configureTitleLabel()
     }
     
     private func configureView() {
         view.backgroundColor = .systemBackground
     }
     
-    private func configureImageAndLabel() {
+    private func configureLogoImageView() {
         view.addSubview(logoImageView)
         logoImageView.image = Images.splashImage
         
@@ -47,7 +47,9 @@ extension SplashScreen {
             make.centerY.equalTo(view).offset(-20)
             make.width.height.equalTo(250)
         }
-        
+    }
+    
+    private func configureTitleLabel() {
         view.addSubview(titleLabel)
         titleLabel.textAlignment = .center
         

@@ -13,7 +13,7 @@ protocol CharactersServiceProtocol {
 }
 
 final class CharactersService: CharactersServiceProtocol {
-    private var service: ServiceProtocol
+    private let service: ServiceProtocol
     
     init(service: ServiceProtocol) {
         self.service = service

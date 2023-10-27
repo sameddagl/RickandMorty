@@ -44,7 +44,6 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
                 
                 //Network call to get characters
                 let residentsIDs = parseIDs(from: self.locations[0])
-                
                 guard residentsIDs.count > 0 else {
                     self.emptyState(location: self.locations[0])
                     return
@@ -63,7 +62,6 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         selectedLocationIndex = index
         
         let selectedLocation = locations.first{ $0.name == locations[index].name }!
-        
         let residentsIDs = parseIDs(from: selectedLocation)
         
         guard residentsIDs.count > 0 else {
@@ -72,9 +70,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
         }
                 
         characters.removeAll()
-        
         selectLocationCell(at: index)
-        
         requestCharacters(residentsIDs: residentsIDs)
     }
 
@@ -102,7 +98,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     }
     
     private func getMultipleCharacters(residentsIDs: String) {
-        self.charactersService.getCharacters(endPoint: .getCharacters(ids: residentsIDs)) { [weak self] result in
+        charactersService.getCharacters(endPoint: .getCharacters(ids: residentsIDs)) { [weak self] result in
             guard let self = self else { return }
 
             self.notify(.endLoading)
@@ -118,7 +114,7 @@ final class CharacterListViewModel: CharacterListViewModelProtocol {
     }
     
     private func getSingleCharacter(residentsIDs: String) {
-        self.charactersService.getCharacter(endPoint: .getCharacters(ids: residentsIDs)) { [weak self] result in
+        charactersService.getCharacter(endPoint: .getCharacters(ids: residentsIDs)) { [weak self] result in
             guard let self = self else { return }
 
             self.notify(.endLoading)

@@ -17,7 +17,6 @@ final class RMCellImageView: UIImageView {
     private func configure() {
         backgroundColor = .systemBackground
         tintColor = .secondarySystemFill
-        
         contentMode = .scaleAspectFill
     }
     

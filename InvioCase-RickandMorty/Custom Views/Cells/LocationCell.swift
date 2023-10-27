@@ -34,10 +34,10 @@ final class LocationCell: UICollectionViewCell {
         titleLabel.textAlignment = .center
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(5)
+            make.top.equalTo(self)
             make.leading.equalTo(self).offset(5)
             make.trailing.equalTo(self).offset(-5)
-            make.bottom.equalTo(self).offset(-5)
+            make.bottom.equalTo(self)
         }
     }
     

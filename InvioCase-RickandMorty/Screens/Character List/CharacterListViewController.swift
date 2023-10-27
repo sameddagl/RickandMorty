@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CharacterListViewController: RMDataLoadingVC {
+final class CharacterListViewController: RMDataLoadingVC, AlertPresentable {
     //MARK: - UI Elements
     private var collectionView: UICollectionView!
     
@@ -52,9 +52,9 @@ extension CharacterListViewController: CharacterListViewDelegate {
         case .scrollToSelectedLocation(let indexPath):
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         case .failWithError(let error):
-            showAlert(message: error.rawValue)
+            showAlert(title: "Error", message: error.rawValue, okAction: {})
         case .showEmptyState(let message):
-            showAlert(title:"No one around here" ,message: message)
+            showAlert(title:"No one around here" ,message: message, okAction: {})
         }
     }
     

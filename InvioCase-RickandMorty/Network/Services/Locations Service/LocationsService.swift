@@ -12,7 +12,7 @@ protocol LocationsServiceProtocol {
 }
 
 final class LocationsService: LocationsServiceProtocol {
-    private var service: ServiceProtocol
+    private let service: ServiceProtocol
     
     init(service: ServiceProtocol) {
         self.service = service

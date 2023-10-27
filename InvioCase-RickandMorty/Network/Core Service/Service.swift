@@ -14,12 +14,7 @@ protocol ServiceProtocol {
 final class Service: ServiceProtocol {
     
     func fetch<T: Decodable>(endPoint: HTTPEndpoint, completion: @escaping (Result<T, NetworkError>) -> Void) {
-        var components = URLComponents()
-        components.scheme = endPoint.scheme
-        components.host = endPoint.host
-        components.path = endPoint.path
-        components.queryItems = endPoint.params
-        
+        let components = createURLComponents(from: endPoint)
         
         guard let url = components.url else {
             completion(.failure(.badURL))
@@ -62,5 +57,14 @@ final class Service: ServiceProtocol {
                 completion(.failure(.unexpectedStatusCode))
             }
         }.resume()
+    }
+    
+    private func createURLComponents(from endPoint: HTTPEndpoint) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = endPoint.scheme
+        components.host = endPoint.host
+        components.path = endPoint.path
+        components.queryItems = endPoint.params
+        return components
     }
 }

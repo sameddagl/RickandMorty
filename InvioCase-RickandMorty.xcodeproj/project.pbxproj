@@ -35,6 +35,7 @@
 		2C6F977029CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F976F29CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift */; };
 		2C6F977229CDC46400DDDEF9 /* RMDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F977129CDC46400DDDEF9 /* RMDataLoadingVC.swift */; };
 		2C8FA78B29CDD16900FE3D22 /* RMCellDetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8FA78A29CDD16900FE3D22 /* RMCellDetailLabel.swift */; };
+		2CB3C4F32AEBD85B00E05BC0 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB3C4F22AEBD85B00E05BC0 /* AlertPresentable.swift */; };
 		2CCD9DBE29D973DD008A4D71 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD9DBD29D973DD008A4D71 /* Helper.swift */; };
 		2CD22D6729CCC4EC00025FE1 /* CharactersEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6629CCC4EC00025FE1 /* CharactersEndPoint.swift */; };
 		2CD22D6929CCC61F00025FE1 /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D6829CCC61F00025FE1 /* CharactersService.swift */; };
@@ -48,7 +49,6 @@
 		2CD22D8029CCD89D00025FE1 /* RMCellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D7F29CCD89D00025FE1 /* RMCellImageView.swift */; };
 		2CD22D8229CCDAAF00025FE1 /* RMCellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D8129CCDAAF00025FE1 /* RMCellLabel.swift */; };
 		2CD22D8429CCDCA900025FE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD22D8329CCDCA900025FE1 /* Constants.swift */; };
-		2CD66CBA29CF001400456045 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD66CB929CF001400456045 /* UIViewController+Extension.swift */; };
 		2CF0F0C629CE204F00FA71BF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0F0C529CE204F00FA71BF /* DetailViewController.swift */; };
 		2CF0F0CB29CE28CE00FA71BF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0F0CA29CE28CE00FA71BF /* String+Extension.swift */; };
 		2CF0F0CD29CE2F4400FA71BF /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0F0CC29CE2F4400FA71BF /* SplashScreen.swift */; };
@@ -84,6 +84,7 @@
 		2C6F976F29CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutDimension+Extension.swift"; sourceTree = "<group>"; };
 		2C6F977129CDC46400DDDEF9 /* RMDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMDataLoadingVC.swift; sourceTree = "<group>"; };
 		2C8FA78A29CDD16900FE3D22 /* RMCellDetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCellDetailLabel.swift; sourceTree = "<group>"; };
+		2CB3C4F22AEBD85B00E05BC0 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		2CCD9DBD29D973DD008A4D71 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		2CD22D6629CCC4EC00025FE1 /* CharactersEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersEndPoint.swift; sourceTree = "<group>"; };
 		2CD22D6829CCC61F00025FE1 /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
@@ -96,7 +97,6 @@
 		2CD22D7F29CCD89D00025FE1 /* RMCellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCellImageView.swift; sourceTree = "<group>"; };
 		2CD22D8129CCDAAF00025FE1 /* RMCellLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCellLabel.swift; sourceTree = "<group>"; };
 		2CD22D8329CCDCA900025FE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		2CD66CB929CF001400456045 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2CF0F0C529CE204F00FA71BF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2CF0F0CA29CE28CE00FA71BF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2CF0F0CC29CE2F4400FA71BF /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
@@ -203,6 +203,7 @@
 				2CD22D8329CCDCA900025FE1 /* Constants.swift */,
 				2CCD9DBD29D973DD008A4D71 /* Helper.swift */,
 				2C6F977129CDC46400DDDEF9 /* RMDataLoadingVC.swift */,
+				2CB3C4F22AEBD85B00E05BC0 /* AlertPresentable.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -214,7 +215,6 @@
 				2C6F976F29CDC36D00DDDEF9 /* NSCollectionLayoutDimension+Extension.swift */,
 				2CF0F0CA29CE28CE00FA71BF /* String+Extension.swift */,
 				2C34AFC229CED579002935A2 /* UserDefaults+Extension.swift */,
-				2CD66CB929CF001400456045 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -436,9 +436,9 @@
 				2C69D64A29CB7185003FCED8 /* HTTPMethod.swift in Sources */,
 				2CD22D7529CCD60700025FE1 /* RMTitleLabel.swift in Sources */,
 				2C69D62829CB6EF6003FCED8 /* AppDelegate.swift in Sources */,
-				2CD66CBA29CF001400456045 /* UIViewController+Extension.swift in Sources */,
 				2CD22D7229CCD00A00025FE1 /* UICollectionView+Extension.swift in Sources */,
 				2C69D62A29CB6EF6003FCED8 /* SceneDelegate.swift in Sources */,
+				2CB3C4F32AEBD85B00E05BC0 /* AlertPresentable.swift in Sources */,
 				2C69D66229CB8B54003FCED8 /* CharacterListViewBuilder.swift in Sources */,
 				2CCD9DBE29D973DD008A4D71 /* Helper.swift in Sources */,
 				2C6F976E29CDA2A300DDDEF9 /* LocationCell.swift in Sources */,

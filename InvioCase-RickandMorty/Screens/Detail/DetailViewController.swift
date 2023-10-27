@@ -11,7 +11,6 @@ final class DetailViewController: UIViewController {
     //MARK: - UI Elements
     private let scrollView = UIScrollView()
     private let containerView = UIView()
-    
     private let characterImageView = UIImageView()
     private let statusLabel = RMBodyLabel()
     private let specyLabel = RMBodyLabel()
@@ -23,9 +22,6 @@ final class DetailViewController: UIViewController {
     
     //MARK: - Injections
     var viewModel: DetailViewModelProtocol!
-    
-    //MARK: - Properties
-    var character: Character!
 
     //MARK: - Life Cycle
     override func viewDidLoad() {
