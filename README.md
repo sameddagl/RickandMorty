@@ -1,27 +1,19 @@
-# InvioCase-RickandMorty
-Invio USG Challenge için Rick and Morty API kullanılarak yapılmış bir listeleme uygulaması.
+# RickandMorty
 
-## Genel Bakış
-- Kullanıcıyı bir logonun ve yazının olduğu splash screen karşılar. Kullanıcı ilk defa uygulamayı açıyorsa "Welcome!", ilk açışı değil ise "Hello"
-yazısı karşılar.
-- Ana sayfada UICollectionViewCompositionalLayout kullanarak oluşturlan, lokasyonları listeleyen yatay ve karakterlerin listelendiği dikey bir liste 
-bulunmaktadır. Lokasyonlar seçildiğinde, lokasyonda bulunan karakterler gelmektedir. Karakterler seçildiğinde ise karakter detay sayfasına gitmektedir.
+## Overview
+- The app greets the user with a splash screen featuring a logo and text. If the user is opening the app for the first time, it displays "Welcome!" Otherwise, it says "Hello."
+- The main page features a horizontal list of locations and a vertical list of characters created using UICollectionViewCompositionalLayout. When a location is selected, it displays the characters in that location. Selecting a character takes the user to the character detail page.
+- The character detail page includes the character's name in the header, followed by their photo and details. I used a UIStackView to handle the extensive details.
 
-- Detay sayfasında başlıkta karakterin ismi devamında ise fotoğrafı ve detayları bulunmaktadır. Detaylar çok fazla label içerdiği için UIStackView kullandım.
-
-- Ana sayfada veriler güncellenmediği ve filtreleme, arama yapma gibi fonksiyonlar olmadığı için DiffableDataSource kullanmadım.
-
-- CompositionalLayout kullandığım için Task 8'i yerine getiremedim çünkü UICollectionViewDelegate fonksiyonu olan
-```scrollViewDidEndDragging```, ```orthogonalScrollingBehavior``` özelliğine sahip olan yatay listede oluşan eventleri belirleyemiyor. Section callback'i olan ```section.visibleItemsInvalidationHandler```kullanmayı denedim fakat sonuca ulaşamadım.
-
-## Kullanılan Yapılar 
+## Used Architectures and Patterns
 - MVVM Architectural Pattern with Delegation
 - Dependency Injection
 - Generic Network Layer
+- Builder Pattern
 - Programmatic UI with SnapKit
 - UICollectionViewCompositionalLayout
 
-## Üçünü Parti Kütüphaneler
+## Third-Party Libraries
 - Snapkit
 - SDWebImage
 
