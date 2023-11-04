@@ -60,7 +60,7 @@
 		2C2CAD9029D6E213005E2702 /* CharacterDetailPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresentation.swift; sourceTree = "<group>"; };
 		2C2CAD9229D6E4EB005E2702 /* DetailViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewBuilder.swift; sourceTree = "<group>"; };
 		2C34AFC229CED579002935A2 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
-		2C69D62429CB6EF6003FCED8 /* InvioCase-RickandMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InvioCase-RickandMorty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C69D62429CB6EF6003FCED8 /* RickandMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickandMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C69D62729CB6EF6003FCED8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C69D62929CB6EF6003FCED8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2C69D63029CB6EF9003FCED8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		2C69D61B29CB6EF6003FCED8 = {
 			isa = PBXGroup;
 			children = (
-				2C69D62629CB6EF6003FCED8 /* InvioCase-RickandMorty */,
+				2C69D62629CB6EF6003FCED8 /* RickandMorty */,
 				2C69D62529CB6EF6003FCED8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,12 +126,12 @@
 		2C69D62529CB6EF6003FCED8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C69D62429CB6EF6003FCED8 /* InvioCase-RickandMorty.app */,
+				2C69D62429CB6EF6003FCED8 /* RickandMorty.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2C69D62629CB6EF6003FCED8 /* InvioCase-RickandMorty */ = {
+		2C69D62629CB6EF6003FCED8 /* RickandMorty */ = {
 			isa = PBXGroup;
 			children = (
 				2C69D64229CB6FE0003FCED8 /* Container */,
@@ -144,7 +144,7 @@
 				2C69D63B29CB6F78003FCED8 /* App */,
 				2C69D63529CB6EF9003FCED8 /* Info.plist */,
 			);
-			path = "InvioCase-RickandMorty";
+			path = RickandMorty;
 			sourceTree = "<group>";
 		};
 		2C69D63B29CB6F78003FCED8 /* App */ = {
@@ -337,9 +337,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2C69D62329CB6EF6003FCED8 /* InvioCase-RickandMorty */ = {
+		2C69D62329CB6EF6003FCED8 /* RickandMorty */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2C69D63829CB6EF9003FCED8 /* Build configuration list for PBXNativeTarget "InvioCase-RickandMorty" */;
+			buildConfigurationList = 2C69D63829CB6EF9003FCED8 /* Build configuration list for PBXNativeTarget "RickandMorty" */;
 			buildPhases = (
 				2C69D62029CB6EF6003FCED8 /* Sources */,
 				2C69D62129CB6EF6003FCED8 /* Frameworks */,
@@ -349,13 +349,13 @@
 			);
 			dependencies = (
 			);
-			name = "InvioCase-RickandMorty";
+			name = RickandMorty;
 			packageProductDependencies = (
 				2CD22D6F29CCCE3900025FE1 /* SnapKit */,
 				2C16177929CCDFA300D76513 /* SDWebImage */,
 			);
 			productName = "InvioCase-RickandMorty";
-			productReference = 2C69D62429CB6EF6003FCED8 /* InvioCase-RickandMorty.app */;
+			productReference = 2C69D62429CB6EF6003FCED8 /* RickandMorty.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -373,7 +373,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2C69D61F29CB6EF6003FCED8 /* Build configuration list for PBXProject "InvioCase-RickandMorty" */;
+			buildConfigurationList = 2C69D61F29CB6EF6003FCED8 /* Build configuration list for PBXProject "RickandMorty" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -390,7 +390,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2C69D62329CB6EF6003FCED8 /* InvioCase-RickandMorty */,
+				2C69D62329CB6EF6003FCED8 /* RickandMorty */,
 			);
 		};
 /* End PBXProject section */
@@ -594,7 +594,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 49Z33V7QZW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "InvioCase-RickandMorty/Info.plist";
+				INFOPLIST_FILE = RickandMorty/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Rick and Morty";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -629,7 +629,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 49Z33V7QZW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "InvioCase-RickandMorty/Info.plist";
+				INFOPLIST_FILE = RickandMorty/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Rick and Morty";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -657,7 +657,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2C69D61F29CB6EF6003FCED8 /* Build configuration list for PBXProject "InvioCase-RickandMorty" */ = {
+		2C69D61F29CB6EF6003FCED8 /* Build configuration list for PBXProject "RickandMorty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C69D63629CB6EF9003FCED8 /* Debug */,
@@ -666,7 +666,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2C69D63829CB6EF9003FCED8 /* Build configuration list for PBXNativeTarget "InvioCase-RickandMorty" */ = {
+		2C69D63829CB6EF9003FCED8 /* Build configuration list for PBXNativeTarget "RickandMorty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C69D63929CB6EF9003FCED8 /* Debug */,

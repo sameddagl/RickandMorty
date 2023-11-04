@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2C69D62329CB6EF6003FCED8"
-               BuildableName = "InvioCase-RickandMorty.app"
-               BlueprintName = "InvioCase-RickandMorty"
-               ReferencedContainer = "container:InvioCase-RickandMorty.xcodeproj">
+               BuildableName = "RickandMorty.app"
+               BlueprintName = "RickandMorty"
+               ReferencedContainer = "container:RickandMorty.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C69D62329CB6EF6003FCED8"
-            BuildableName = "InvioCase-RickandMorty.app"
-            BlueprintName = "InvioCase-RickandMorty"
-            ReferencedContainer = "container:InvioCase-RickandMorty.xcodeproj">
+            BuildableName = "RickandMorty.app"
+            BlueprintName = "RickandMorty"
+            ReferencedContainer = "container:RickandMorty.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C69D62329CB6EF6003FCED8"
-            BuildableName = "InvioCase-RickandMorty.app"
-            BlueprintName = "InvioCase-RickandMorty"
-            ReferencedContainer = "container:InvioCase-RickandMorty.xcodeproj">
+            BuildableName = "RickandMorty.app"
+            BlueprintName = "RickandMorty"
+            ReferencedContainer = "container:RickandMorty.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

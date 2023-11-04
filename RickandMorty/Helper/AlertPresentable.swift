@@ -12,8 +12,8 @@ protocol AlertPresentable {
     func showDismissableAlert(title: String, message: String, okAction: @escaping (() -> Void))
 }
 
-extension AlertPresentable {
-    func showAlert(title: String, message: String, okAction: @escaping (() -> Void)) where Self: UIViewController {
+extension AlertPresentable where Self: UIViewController {
+    func showAlert(title: String, message: String, okAction: @escaping (() -> Void)) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "Okay", style: .default) { _ in
@@ -24,7 +24,7 @@ extension AlertPresentable {
         }
     }
     
-    func showDismissableAlert(title: String, message: String, okAction: @escaping (() -> Void)) where Self: UIViewController {
+    func showDismissableAlert(title: String, message: String, okAction: @escaping (() -> Void)) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let okayAction = UIAlertAction(title: "Okay", style: .default)
